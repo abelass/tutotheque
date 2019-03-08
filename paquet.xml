@@ -18,6 +18,8 @@
 	<!-- cette balise peut être présente plusieurs fois s'il y a plusieurs auteurs --> 
 	<auteur lien='https://web-simple.eu'>Rainer Müller</auteur>
 
+
+
 	<licence>GNU/GPL v3</licence>
 
 	<!--
@@ -39,7 +41,9 @@
 		<onglet nom="tutotheque" titre="tutotheque:tutotheque_titre" parent="configuration" icone="images/tutotheque-24.png" />
 	-->
 
-
+	<necessite nom="wsps_html5" compatibilite="[2.0.10;]" />
+	<necessite nom="wsp_ml" compatibilite="[0.2.14;]" />
+	<necessite nom="tutoriel" compatibilite="[1.0.0;]" />
 
 
 </paquet>
