@@ -1,0 +1,30 @@
+<!-- Surcharge Plugin cncd Liste tutos-projets -->
+<B_tutos>
+#ANCRE_PAGINATION
+<table class="table table-striped spip g-my-50">
+	<thead>
+		<tr>
+
+			<td><:ecrire:info_titre:></td>
+			<td>Tags</td>
+		</tr>
+	</thead>
+	<tbody>
+	<BOUCLE_tutos(TUTOS){recherche?}{mots?}{par titre}{pagination 20}>
+		<tr>
+			[<td>
+				<a href="#URL_ARTICLE" title="[(#TITRE|supprimer_tags)]">(#TITRE) </a>
+			</td>]
+			<B_organisations>
+			<td><BOUCLE_organisations (MOTS) {id_tuto} {', '}>
+				<a href="#URL_MOT" title="[(#TITRE|supprimer_tags)]">#TITRE</a>
+				</BOUCLE_organisations> </td>
+			</B_organisations>
+		</tr>
+	</BOUCLE_tutos>
+	</tbody>
+</table>
+			[(#PAGINATION{precedent_suivant,ajax})]
+</B_tutos>
+<p>Pas de tutos</p>
+<//B_tutos>

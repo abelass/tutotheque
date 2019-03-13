@@ -1,0 +1,33 @@
+#SET{mots,#ARRAY}
+<BOUCLE_mots(DATA){source tableau, #LISTE{themes,organisations}}>
+[(#ENV{#VALEUR}|oui)#SET{mots,#GET{mots}|push{#ENV{#VALEUR}}]
+</BOUCLE_mots>
+
+<div class="formulaire_spip formulaire_recherche_tutos" id="formulaire_recherche_tutos">
+	<form action="[(#ENV{action})]#formulaire_recherche_tutos" method="get">
+		<div>
+			<div class="editer-groupe">
+				[(#ENV{action}|form_hidden)]
+				[(#SAISIE{input,recherche,label=<:spip:info_rechercher:>})]
+
+
+				<INCLURE{
+					fond=formulaires/inc-recherche_tutos_mots,
+					id_groupe=30,
+					nom=themes,
+					id_mot=#ENV{organisations},
+					id_pays=#ENV{id_pays},
+					id_rubrique=#ENV{id_rubrique},
+					env,
+					ajax=recherche_themes}/>
+
+			<p class="boutons">
+				<input type="submit" class="submit" value="<:info_rechercher:>" />
+			</p>
+			</div>
+			[(#REM) tutos trouvés ]
+			<INCLURE{fond=inclure/tutos,env,ajax}/>
+		</div>
+	</form>
+</div>
+
