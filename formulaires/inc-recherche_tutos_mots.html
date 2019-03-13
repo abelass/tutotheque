@@ -12,16 +12,13 @@
 		</BOUCLE_mots_groupe>
 
 		[(#REM) Si rien dans l'env on prend les mots du groupe]
-		[(#GET{mots}|non)
+		[(#GET{mots}?{
+			#SET{score,100%},
 			#SET{mots,#GET{mots_groupe}}
 			#SET{score,0}
-			]
-	[(#REM) eviter de filtres se propres critères]
-	[(#GET{request}|oui)
-		[(#SET{mots,#GET{mots}|array_merge{#GET{mots_groupe}}})]
-	]
+			})]
 
-		[(#REM) Ajouter aux options les mots qui donneront un résultat]
+	[(#REM) Ajouter aux options les mots qui donneront un résultat]
 	<BOUCLE_groupe(MOTS){id_groupe=#CLE}{par titre}>
 		#SET{titre_groupe,#TYPE}
 		<B_tuto>
