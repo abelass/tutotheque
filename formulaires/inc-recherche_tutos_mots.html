@@ -25,6 +25,7 @@
 		<//B_teste>
 	</BOUCLE_groupe>
 
+	[(#REM) Composition des saisies]
 	#SET{data,#GET{data}|array_flip}
 	#SET{saisies,#GET{saisies}|array_merge{
 			#ARRAY{
@@ -42,6 +43,6 @@
 	}
 </BOUCLE_criteres>
 
-
+[(#REM) Génération de champs critères]
 #GENERER_SAISIES{#GET{saisies}}
 
