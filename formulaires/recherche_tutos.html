@@ -8,22 +8,17 @@
 		<div>
 			<div class="editer-groupe">
 				[(#ENV{action}|form_hidden)]
-				[(#SAISIE{input,recherche,label=<:spip:info_rechercher:>})]
 
+				[(#SAISIE{input,recherche,label=<:spip:info_rechercher:>})]
 
 				<INCLURE{
 					fond=formulaires/inc-recherche_tutos_mots,
-					id_groupe=30,
-					nom=themes,
-					id_mot=#ENV{organisations},
-					id_pays=#ENV{id_pays},
-					id_rubrique=#ENV{id_rubrique},
 					env,
 					ajax=recherche_mots}/>
 
-			<p class="boutons">
-				<input type="submit" class="submit" value="<:info_rechercher:>" />
-			</p>
+				<p class="boutons">
+					<input type="submit" class="submit" value="<:info_rechercher:>" />
+				</p>
 			</div>
 			[(#REM) tutos trouvés ]
 			<INCLURE{fond=inclure/tutos,env,ajax}/>
