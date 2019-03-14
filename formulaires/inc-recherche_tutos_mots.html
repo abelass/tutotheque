@@ -1,32 +1,25 @@
 #SET{saisies,#ARRAY}
-#SET{mots,#ENV{mots}}
+
 
 [(#REM) préparation des saisies]
 <BOUCLE_criteres(DATA){source tableau, #ENV{_criteres}}>
+  #SET{mots,#ENV{mots}}
 	#SET{data,#ARRAY}
 	#SET{score,1}
 	#SET{request,#ENV{#VALEUR}}
-		[(#REM) Les mots du groupe]
-		#SET{mots_groupe,#ARRAY}
-		<BOUCLE_mots_groupe(MOTS){id_groupe=#CLE}{par titre}>
-			#SET{mots_groupe,#GET{mots_groupe}|push{#ID_MOT}}
-		</BOUCLE_mots_groupe>
 
-		[(#REM) Si rien dans l'env on prend les mots du groupe]
-		#SET{score,100%}
-
-
-
-
+	[(#REM) enleve la valeur du menu concerné adin de ne pas l'autolimiter]
+	#SET{mots,#GET{mots}|array_diff{#LISTE{#GET{request}}}}
 
 	[(#REM) Ajouter aux options les mots qui donneront un résultat]
 	<BOUCLE_groupe(MOTS){id_groupe=#CLE}{par titre}>
 		#SET{titre_groupe,#TYPE}
 		<B_teste>
 		<BOUCLE_teste(CONDITION){si #GET{mots}}>
+
 			<B_tuto>
 				#SET{data,#GET{data}|array_merge{#ARRAY{#TITRE,#ID_MOT}}}
-			<BOUCLE_tuto(TUTOS){id_mot}{mots #GET{score} #GET{mots}}> </BOUCLE_tuto>
+			<BOUCLE_tuto(TUTOS){id_mot}{mots 100% #GET{mots}}> </BOUCLE_tuto>
 		</BOUCLE_teste>
 			#SET{data,#GET{data}|array_merge{#ARRAY{#TITRE,#ID_MOT}}}
 			<B_tuto_alter>
