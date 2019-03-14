@@ -1,4 +1,4 @@
-#SET{saisies,#ARRAY}	#SET{recherche_avancee,''}
+#SET{saisies,#ARRAY}
 
 [(#REM) Préparation des saisies]
 <BOUCLE_criteres(DATA)
@@ -8,7 +8,6 @@
 	#SET{data,#ARRAY}
 	#SET{request,#ENV{#VALEUR}}
 
-#GET{recherche_avancee}
 	[(#REM) Enlève la valeur du champ concerné afin de ne pas l'autolimiter]
 	#SET{mots,#GET{mots}|array_diff{#LISTE{#GET{request}}}}
 
