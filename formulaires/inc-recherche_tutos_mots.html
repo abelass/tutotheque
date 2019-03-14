@@ -1,5 +1,4 @@
 #SET{saisies,#ARRAY}
-
 [(#REM) Préparation des saisies]
 <BOUCLE_criteres(DATA){source tableau, #ENV{_criteres}}>
   #SET{mots,#ENV{mots}}
@@ -45,4 +44,44 @@
 
 [(#REM) Génération de champs critères]
 #GENERER_SAISIES{#GET{saisies}}
+
+<script type="text/javascript">
+$(function() {
+	var criteres = [(#ENV{_criteres}|json_encode)]
+
+	function parametres(critereChoisit, valeurChoisit) {
+		// Les arguments définits
+		var args = {
+			_criteres: criteres,
+		};
+		var mots = [];
+		$.each(criteres, function(index, critere) {
+			var valeur = $('#champ_' + critere).val();
+			if (critere == critereChoisit) {
+				valeur = valeurChoisit;
+				args[critere] = valeur;
+			}
+			else if (valeur !== "") {
+				mots.push(valeur);
+				args[critere] = valeur;
+			}
+		});
+
+		args.mots = mots;
+
+		return args;
+	}
+
+	$.each(criteres, function(key, critere) {
+		$(document).on('change', '#champ_' + critere, function(event) {
+			args = parametres(critere, $(this).val());
+			ajaxReload('recherche_mots', {
+				args : args,
+				cache : false
+			});
+
+		});
+	});
+});
+</script>
 
