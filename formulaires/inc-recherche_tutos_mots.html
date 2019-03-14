@@ -1,6 +1,5 @@
 #SET{saisies,#ARRAY}
 
-
 [(#REM) préparation des saisies]
 <BOUCLE_criteres(DATA){source tableau, #ENV{_criteres}}>
   #SET{mots,#ENV{mots}}
@@ -16,17 +15,16 @@
 		#SET{titre_groupe,#TYPE}
 		<B_teste>
 		<BOUCLE_teste(CONDITION){si #GET{mots}}>
-
 			<B_tuto>
 				#SET{data,#GET{data}|array_merge{#ARRAY{#TITRE,#ID_MOT}}}
 			<BOUCLE_tuto(TUTOS){id_mot}{mots 100% #GET{mots}}> </BOUCLE_tuto>
 		</BOUCLE_teste>
-			#SET{data,#GET{data}|array_merge{#ARRAY{#TITRE,#ID_MOT}}}
 			<B_tuto_alter>
 				#SET{data,#GET{data}|array_merge{#ARRAY{#TITRE,#ID_MOT}}}
 			<BOUCLE_tuto_alter(TUTOS){id_mot}> </BOUCLE_tuto_alter>
 		<//B_teste>
 	</BOUCLE_groupe>
+
 	#SET{data,#GET{data}|array_flip}
 	#SET{saisies,#GET{saisies}|array_merge{
 			#ARRAY{
