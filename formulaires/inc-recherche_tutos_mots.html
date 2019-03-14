@@ -42,7 +42,18 @@
 </BOUCLE_criteres>
 
 [(#REM) Génération de champs critères]
-#GENERER_SAISIES{#GET{saisies}}
+#GENERER_SAISIES{
+	#ARRAY{
+			0,#ARRAY{
+				saisie,fieldset,
+				options,#ARRAY{
+					nom,recherche_avancee,
+					label, \<:tutotheque:fieldset_recherche_avancee_label:\>,
+				},
+				saisies,#GET{saisies}
+			}
+		}
+	}
 
 <script type="text/javascript">
 $(function() {
@@ -52,7 +63,7 @@ $(function() {
 		// Les arguments définits
 		var args = {
 			_criteres: criteres,
-		};
+
 		var mots = [];
 		$.each(criteres, function(index, critere) {
 			var valeur = $('#champ_' + critere).val();
