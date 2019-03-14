@@ -14,6 +14,7 @@ function formulaires_recherche_tutos_charger_dist(){
 	$criteres = array_column($criteres, 'nom', 'id_groupe');
 	$valeurs = [
 		'recherche' => _request('recherche'),
+		'recherche_avancee' => _request('recherche_avancee') ? _request('recherche_avancee') : [],
 		'_criteres' => $criteres,
 	];
 	$mots = [];
@@ -26,5 +27,6 @@ function formulaires_recherche_tutos_charger_dist(){
 	$valeurs['mots'] = $mots;
 	return $valeurs;
 }
+
 
 

@@ -1,10 +1,14 @@
-#SET{saisies,#ARRAY}
+#SET{saisies,#ARRAY}	#SET{recherche_avancee,''}
+
 [(#REM) Préparation des saisies]
-<BOUCLE_criteres(DATA){source tableau, #ENV{_criteres}}>
+<BOUCLE_criteres(DATA)
+	{source tableau,#ENV{_criteres}}
+	{si #VAL{oui}|in_array{#ENV{recherche_avancee}}}>
   #SET{mots,#ENV{mots}}
 	#SET{data,#ARRAY}
 	#SET{request,#ENV{#VALEUR}}
 
+#GET{recherche_avancee}
 	[(#REM) Enlève la valeur du champ concerné afin de ne pas l'autolimiter]
 	#SET{mots,#GET{mots}|array_diff{#LISTE{#GET{request}}}}
 
@@ -55,6 +59,7 @@
 		}
 	}
 
+<BOUCLE_teste_ra(CONDITION){si #VAL{oui}|in_array{#ENV{recherche_avancee}}}>
 <script type="text/javascript">
 $(function() {
 	var criteres = [(#ENV{_criteres}|json_encode)]
@@ -84,6 +89,7 @@ $(function() {
 	}
 
 	$.each(criteres, function(key, critere) {
+
     var champ = document.querySelector('#champ_' + critere);
 		champ.addEventListener('change', function(event) {
 			args = parametres(critere, $(this).val());
@@ -96,4 +102,4 @@ $(function() {
 	});
 });
 </script>
-
+</BOUCLE_teste_ra>
