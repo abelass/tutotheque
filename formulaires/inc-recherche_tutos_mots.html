@@ -73,14 +73,15 @@ $(function() {
 	}
 
 	$.each(criteres, function(key, critere) {
-		$(document).on('change', '#champ_' + critere, function(event) {
+    var champ = document.querySelector('#champ_' + critere);
+		champ.addEventListener('change', function(event) {
 			args = parametres(critere, $(this).val());
 			ajaxReload('recherche_mots', {
 				args : args,
 				cache : false
 			});
-
-		});
+		event.stopPropagation();
+		},true);
 	});
 });
 </script>
