@@ -1,13 +1,13 @@
 #SET{saisies,#ARRAY}
 
-[(#REM) préparation des saisies]
+[(#REM) Préparation des saisies]
 <BOUCLE_criteres(DATA){source tableau, #ENV{_criteres}}>
   #SET{mots,#ENV{mots}}
 	#SET{data,#ARRAY}
 	#SET{score,1}
 	#SET{request,#ENV{#VALEUR}}
 
-	[(#REM) enleve la valeur du menu concerné adin de ne pas l'autolimiter]
+	[(#REM) Enlève la valeur du champ concerné afin de ne pas l'autolimiter]
 	#SET{mots,#GET{mots}|array_diff{#LISTE{#GET{request}}}}
 
 	[(#REM) Ajouter aux options les mots qui donneront un résultat]
