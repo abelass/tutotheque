@@ -35,35 +35,34 @@
 </div>
 
 <script type="text/javascript">
-    var champRechercheAvancee  = document.querySelector('.editer_recherche_avancee input');
-		champRechercheAvancee.addEventListener('click', function(event) {
+	var champRechercheAvancee  = document.querySelector('.editer_recherche_avancee input');
 
-		var criteres = [(#ENV{_criteres}|json_encode)]
-		var args = {
-			_criteres: criteres,
-		};
+	champRechercheAvancee.addEventListener('click', function(event) {
 
-		var mots = [];
-		$.each(criteres, function(index, critere) {
-			var valeur = $('#champ_' + critere).val();
-			if (valeur !== "") {
-				args[critere] = valeur;
-			}
+	var criteres = [(#ENV{_criteres}|json_encode)]
+	var args = {
+		_criteres: criteres,
+	};
+
+	var mots = [];
+	$.each(criteres, function(index, critere) {
+		var valeur = $('#champ_' + critere).val();
+		if (valeur !== "") {
+			args[critere] = valeur;
+		}
+	});
+
+	args.mots = mots;
+		args.recherche_avancee = [];
+		if ($(this).is(':checked')) {
+			args.recherche_avancee = [$(this).val()];
+		}
+
+		ajaxReload('recherche_mots', {
+			args : args,
+			cache : false
 		});
-
-		args.mots = mots;
-			args.recherche_avancee = [];
-			if ($(this).is(':checked')) {
-				args.recherche_avancee = [$(this).val()];
-			}
-
-			ajaxReload('recherche_mots', {
-				args : args,
-				cache : false
-			});
-		event.stopPropagation();
-		},true);
-
-
+	event.stopPropagation();
+	},true);
 </script>
 
