@@ -1,6 +1,7 @@
 #SET{saisies,#ARRAY}
 #SET{mots,#ENV{mots}}
 
+[(#REM) préparation des saisies]
 <BOUCLE_criteres(DATA){source tableau, #ENV{_criteres}}>
 	#SET{data,#ARRAY}
 	#SET{score,1}
@@ -18,6 +19,7 @@
 			#SET{score,0}
 			})]
 
+
 	[(#REM) Ajouter aux options les mots qui donneront un résultat]
 	<BOUCLE_groupe(MOTS){id_groupe=#CLE}{par titre}>
 		#SET{titre_groupe,#TYPE}
@@ -34,6 +36,7 @@
 					options,#ARRAY{
 						nom,#VALEUR,
 						label,#GET{titre_groupe},
+						option_intro,\<:tutotheque:choix_tout:\>,
 						data,#GET{data},
 					},
 				}

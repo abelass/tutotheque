@@ -7,6 +7,9 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
+	// C
+	'choix_tout' => 'Tout',
+
 	// T
 	'tutotheque_titre' => 'Tutothèque',
 );
