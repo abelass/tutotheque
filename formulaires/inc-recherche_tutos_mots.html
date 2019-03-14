@@ -4,7 +4,7 @@
 <BOUCLE_criteres(DATA)
 	{source tableau,#ENV{_criteres}}
 	{si #VAL{oui}|in_array{#ENV{recherche_avancee}}}>
-  #SET{mots,#ENV{mots}}
+	#SET{mots,#ENV{mots}}
 	#SET{data,#ARRAY}
 	#SET{request,#ENV{#VALEUR}}
 
@@ -88,8 +88,8 @@ $(function() {
 	}
 
 	$.each(criteres, function(key, critere) {
+		var champ = document.querySelector('#champ_' + critere);
 
-    var champ = document.querySelector('#champ_' + critere);
 		champ.addEventListener('change', function(event) {
 			args = parametres(critere, $(this).val());
 			ajaxReload('recherche_mots', {
