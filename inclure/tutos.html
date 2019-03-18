@@ -1,5 +1,23 @@
 <!-- Surcharge Plugin cncd Liste tutos-projets -->
-<B_tutos>
+#SET{id_tuto,#ARRAY}
+#SET{id_trad,#ARRAY}
+<BOUCLE_tutos(TUTOS){recherche?}{mots?}>
+	<BOUCLE_tutos_trad(TUTOS){traduction}{id_trad !IN #GET{id_trad}}>
+	[(#ID_TRAD|>{0}|?{
+		#SET{id_trad,#GET{id_trad}|push{#ID_TRAD}}
+		[(#LANG|=={#ENV{lang}}|?{
+			#SET{id_tuto,#GET{id_tuto}|push{#ID_TUTO}},
+			#SET{id_tuto,#GET{id_tuto}|push{#ID_TRAD}}
+		})]
+		,
+		#SET{id_tuto,#GET{id_tuto}|push{#ID_TUTO}}
+	})]
+	</BOUCLE_tutos_trad>
+</BOUCLE_tutos>
+
+
+
+<B_tutos_langues>
 #ANCRE_PAGINATION
 <table class="table table-striped spip g-my-50">
 	<thead>
@@ -10,10 +28,15 @@
 		</tr>
 	</thead>
 	<tbody>
-	<BOUCLE_tutos(TUTOS){recherche?}{mots?}{par titre}{pagination 20}>
+	<BOUCLE_tutos_langues(TUTOS){id_tuto IN #GET{id_tuto}}{par titre}{pagination 20}>
 		<tr>
 			[<td>
-				<a href="#URL_ARTICLE" title="[(#TITRE|supprimer_tags)]">(#TITRE) </a>
+				<a
+					href="#URL_TUTO"
+					title="[(#TITRE|supprimer_tags)]"
+					[hreflang="(#ENV{lang}|=={#LANG}|non|?{#LANG})"]>
+					(#TITRE)
+				</a>
 			</td>]
 			<B_organisations>
 			<td><BOUCLE_organisations (MOTS) {id_tuto} {', '}>
@@ -21,10 +44,10 @@
 				</BOUCLE_organisations> </td>
 			</B_organisations>
 		</tr>
-	</BOUCLE_tutos>
+	</BOUCLE_tutos_langues>
 	</tbody>
 </table>
-			[(#PAGINATION{precedent_suivant,ajax})]
-</B_tutos>
+	[(#PAGINATION{precedent_suivant,ajax})]
+</B_tutos_languess>
 <p>Pas de tutos</p>
-<//B_tutos>
+<//B_tutos_langues>
