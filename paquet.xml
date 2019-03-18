@@ -1,7 +1,7 @@
 <paquet
 	prefix="tutotheque"
 	categorie="squelette"
-	version="1.0.0"
+	version="1.0.1"
 	etat="dev"
 	compatibilite="[3.2.3;3.2.*]"
 	logo="prive/themes/spip/images/tutotheque-64.png"
@@ -23,7 +23,7 @@
 	<licence>GNU/GPL v3</licence>
 
 
-	<necessite nom="wsps_html5" compatibilite="[2.0.10;]" />
+	<necessite nom="wsps_html5" compatibilite="[2.0.10;2.*.*]" />
 	<necessite nom="wsp_ml" compatibilite="[0.2.14;]" />
 	<necessite nom="tutoriel" compatibilite="[1.0.0;]" />
 	<necessite nom="critere_mots" compatibilite="[4.3.0;]" />
