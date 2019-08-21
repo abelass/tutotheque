@@ -22,7 +22,6 @@
 <table class="table table-striped spip g-my-50">
 	<thead>
 		<tr>
-
 			<td><:ecrire:info_titre:></td>
 			<td>Tags</td>
 		</tr>
@@ -41,13 +40,13 @@
 			<B_organisations>
 			<td><BOUCLE_organisations (MOTS) {id_tuto} {', '}>
 				<a href="#URL_MOT" title="[(#TITRE|supprimer_tags)]">#TITRE</a>
-				</BOUCLE_organisations> </td>
+				</BOUCLE_organisations></td>
 			</B_organisations>
 		</tr>
 	</BOUCLE_tutos_langues>
 	</tbody>
 </table>
 	[(#PAGINATION{precedent_suivant,ajax})]
-</B_tutos_languess>
+</B_tutos_langues>
 <p>Pas de tutos</p>
 <//B_tutos_langues>
