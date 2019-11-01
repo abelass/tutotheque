@@ -15,6 +15,7 @@ function formulaires_recherche_tutos_charger_dist(){
 	$valeurs = [
 		'recherche' => _request('recherche'),
 		'recherche_avancee' => _request('recherche_avancee') ? _request('recherche_avancee') : [],
+		'langue' => _request('langue'),
 		'_criteres' => $criteres,
 	];
 	$mots = [];
