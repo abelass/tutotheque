@@ -8,6 +8,7 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// C
+	'champ_lang' => 'Langue',
 	'choix_tout' => 'Tout',
 
 	// F

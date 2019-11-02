@@ -1,21 +1,26 @@
-<!-- Surcharge Plugin cncd Liste tutos-projets -->
 #SET{id_tuto,#ARRAY}
 #SET{id_trad,#ARRAY}
 <BOUCLE_tutos(TUTOS){recherche?}{mots?}>
-	<BOUCLE_tutos_trad(TUTOS){traduction}{id_trad !IN #GET{id_trad}}>
+	<BOUCLE_tutos_trad(TUTOS){traduction}{id_trad !IN #GET{id_trad}}{lang IN #ENV{langue,#ENV{langues_def}}}>
+	[(#REM) Si traduit, voir quelle traduction afficher]
 	[(#ID_TRAD|>{0}|?{
+		[(#REM) éviter les doublons]
 		#SET{id_trad,#GET{id_trad}|push{#ID_TRAD}}
 		[(#LANG|=={#ENV{lang}}|?{
+			[(#REM) Si il existe, on prend celui de la langue du contexte]
 			#SET{id_tuto,#GET{id_tuto}|push{#ID_TUTO}},
-			#SET{id_tuto,#GET{id_tuto}|push{#ID_TRAD}}
+			[(#REM) Sinon, on regarde si un filtre langue est présent ou pas]
+			[(#ENV{langue}|?{
+				#SET{id_tuto,#GET{id_tuto}|push{#ID_TUTO}},
+				#SET{id_tuto,#GET{id_tuto}|push{#ID_TRAD}}
+			})]
 		})]
 		,
+		[(#REM) Si pas traduit, on prend tel quel]
 		#SET{id_tuto,#GET{id_tuto}|push{#ID_TUTO}}
 	})]
 	</BOUCLE_tutos_trad>
 </BOUCLE_tutos>
-
-
 
 <B_tutos_langues>
 #ANCRE_PAGINATION

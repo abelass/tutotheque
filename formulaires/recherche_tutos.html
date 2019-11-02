@@ -2,6 +2,11 @@
 <BOUCLE_mots(DATA){source tableau, #LISTE{themes,organisations}}>
 [(#ENV{#VALEUR}|oui)#SET{mots,#GET{mots}|push{#ENV{#VALEUR}}]
 </BOUCLE_mots>
+[(#REM) Les langues des tutos]
+#SET{langues_def,#ARRAY}
+<BOUCLE_tutos_langues_def(TUTOS) {fusion lang}>
+	#SET{langues_def, #GET{langues_def}|array_merge{#ARRAY{#COMPTEUR_BOUCLE,#LANG}}}
+</BOUCLE_tutos_langues_def>
 
 <div class="formulaire_spip formulaire_recherche_tutos" id="formulaire_recherche_tutos">
 	<form action="[(#ENV{action})]#formulaire_recherche_tutos" method="get">
@@ -16,20 +21,18 @@
 					data=#ARRAY{oui,<:ecrire:item_oui:>}
 				})]
 
-
 				<INCLURE{
 					fond=formulaires/inc-recherche_tutos_criteres,
 					env,
+					langues_def=#GET{langues_def},
 					ajax=recherche_criteres}/>
-
-
 
 				<p class="boutons">
 					<input type="submit" class="submit" value="<:info_rechercher:>" />
 				</p>
 			</div>
 			[(#REM) tutos trouvés ]
-			<INCLURE{fond=inclure/tutos,env,lang=#ENV{langue},ajax}/>
+			<INCLURE{fond=inclure/tutos,env,langues_def=#GET{langues_def},ajax}/>
 		</div>
 	</form>
 </div>
