@@ -22,7 +22,7 @@
 			}
 		}
 	}
-
+langue : #ENV{langue}
 [(#REM) Préparation des saisies]
 [(#REM) les mots clés]
 <BOUCLE_teste_ra(CONDITION){si #VAL{oui}|in_array{#ENV{recherche_avancee}}}>
@@ -83,19 +83,18 @@
 
 
 <script type="text/javascript">
-$(function() {
+	$( document ).ready(function() {
 	var criteres = [(#ENV{_criteres}|json_encode)]
 
+	// Les arguments définits
 	function parametres(critereChoisit, valeurChoisit) {
-		// Les arguments définits
 		var args = {
 			_criteres: criteres,
 		};
-
 		var mots = [];
 		$.each(criteres, function(index, critere) {
 			var valeur = $('#champ_' + critere).val();
-			if (critere == critereChoisit) {
+			if (critereChoisit !== undefined && critere == critereChoisit) {
 				valeur = valeurChoisit;
 				args[critere] = valeur;
 			}
@@ -104,23 +103,32 @@ $(function() {
 				args[critere] = valeur;
 			}
 		});
-
+		args.langue = $('#champ_langue').val();
 		args.mots = mots;
-
 		return args;
 	}
+
 
 	$.each(criteres, function(key, critere) {
 		var champ = document.querySelector('#champ_' + critere);
 
 		champ.addEventListener('change', function(event) {
-			args = parametres(critere, $(this).val());
-			ajaxReload('recherche_mots', {
-				args : args,
+			argsMot = parametres(critere, $(this).val());
+
+			ajaxReload('recherche_criteres', {
+				args : argsMot,
 				cache : false
 			});
 		event.stopPropagation();
 		},true);
+	});
+
+	$('#champ_langue').on('change', function (e) {
+		var args = parametres();
+			ajaxReload('recherche_criteres', {
+				args : args,
+				cache : false
+			})
 	});
 });
 </script>

@@ -18,9 +18,9 @@
 
 
 				<INCLURE{
-					fond=formulaires/inc-recherche_tutos_mots,
+					fond=formulaires/inc-recherche_tutos_criteres,
 					env,
-					ajax=recherche_mots}/>
+					ajax=recherche_criteres}/>
 
 
 
@@ -35,6 +35,7 @@
 </div>
 
 <script type="text/javascript">
+	$( document ).ready(function() {
 		var champRechercheAvancee  = document.querySelector('.editer_recherche_avancee input');
 		champRechercheAvancee.addEventListener('click', function(event) {
 
@@ -42,8 +43,9 @@
 		var args = {
 			_criteres: criteres,
 		};
-
+		var langue =  $('#champ_langue').val();
 		var mots = [];
+
 		$.each(criteres, function(index, critere) {
 			var valeur = $('#champ_' + critere).val();
 			if (valeur !== "") {
@@ -52,18 +54,20 @@
 		});
 
 		args.mots = mots;
-			args.recherche_avancee = [];
-			if ($(this).is(':checked')) {
-				args.recherche_avancee = [$(this).val()];
-			}
+		args.recherche_avancee = [];
+		if ($(this).is(':checked')) {
+			args.recherche_avancee = [$(this).val()];
+		}
+		args.lang	= langue;
 
-			ajaxReload('recherche_mots', {
-				args : args,
-				cache : false
-			});
+		ajaxReload('recherche_criteres', {
+			args : args,
+			cache : false
+		});
+
 		event.stopPropagation();
 		},true);
-
+	});
 
 </script>
 
