@@ -2,9 +2,8 @@
 #SET{id_trad,#ARRAY}
 <BOUCLE_tutos(TUTOS){recherche?}{mots?}>
 	<BOUCLE_tutos_trad(TUTOS){traduction}{id_trad !IN #GET{id_trad}}{lang IN #ENV{langue,#ENV{langues_def}}}>
-	[(#REM) Si traduit, voir quelle traduction afficher]
+	[(#REM) Détecter quel tuto à afficher]
 	[(#ID_TRAD|>{0}|et{#ENV{langue}|non}|?{
-		[(#REM) éviter les doublons]
 		#SET{id_trad,#GET{id_trad}|push{#ID_TRAD}}
 		[(#LANG|=={#ENV{lang}}|?{
 			#SET{id_tuto,#GET{id_tuto}|push{#ID_TUTO}},

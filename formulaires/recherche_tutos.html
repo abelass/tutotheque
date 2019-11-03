@@ -18,7 +18,7 @@
 
 				[(#SAISIE{checkbox,recherche_avancee,
 					label=<:tutotheque:fieldset_recherche_avancee_label:>,
-					data=#ARRAY{oui,<:ecrire:item_oui:>}
+					data=#ARRAY{oui,<:tutotheque:fieldset_recherche_avancee_label:>}
 				})]
 
 				<INCLURE{
@@ -39,6 +39,15 @@
 
 <script type="text/javascript">
 	$( document ).ready(function() {
+		$('.checkbox_recherche_avancee').hide();
+		var texte = $('.editer_recherche_avancee .choix ').text().trim();
+
+		var texteOuvert = '<:tutotheque:fieldset_recherche_simple_label:>';
+		if ($('.editer_recherche_avancee input').is(':checked')) {
+			var remplace  = texte.replace(texte, texteOuvert);
+			$('.editer_recherche_avancee .choix label').html(remplace);
+		}
+
 		var champRechercheAvancee  = document.querySelector('.editer_recherche_avancee input');
 		champRechercheAvancee.addEventListener('click', function(event) {
 
@@ -58,9 +67,18 @@
 
 		args.mots = mots;
 		args.recherche_avancee = [];
+
 		if ($(this).is(':checked')) {
 			args.recherche_avancee = [$(this).val()];
+			remplace  = texte.replace(texte, texteOuvert);
 		}
+		else {
+			remplace = texte.replace(texteOuvert, texte);
+		}
+
+		$('.editer_recherche_avancee .choix label').html(remplace);
+
+
 		args.lang	= langue;
 
 		ajaxReload('recherche_criteres', {

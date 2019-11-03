@@ -1,0 +1,16 @@
+@import 'css/variables';
+
+/* Formulaire recherche */
+.formulaire_spip {
+	.editer_recherche_avancee {
+		> label{
+			display: none;
+		}
+		label {
+			color: $link-color;
+		}
+	}
+	.fieldset_recherche_avancee legend  {
+		display: none;
+	}
+}

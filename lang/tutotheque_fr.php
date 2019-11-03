@@ -13,6 +13,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// F
 	'fieldset_recherche_avancee_label' => 'Recherche avancée',
+	'fieldset_recherche_simple_label' => 'Recherche simple',
 
 	// T
 	'tutotheque_titre' => 'Tutothèque',
