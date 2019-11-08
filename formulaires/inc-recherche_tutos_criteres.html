@@ -1,5 +1,4 @@
 #SET{mots,#ENV{mots}}
-
 [(#REM) Les langues des tutos corespondants aux critères]
 #SET{langues,#ARRAY}
 <BOUCLE_tutos_langues(TUTOS) {si #GET{mots}|non}{fusion lang}>
@@ -34,19 +33,25 @@
 	#SET{mots,#GET{mots}|array_diff{#LISTE{#GET{request}}}}
 
 	[(#REM) Ajouter aux options les mots qui donneront un résultat]
-	<BOUCLE_groupe(MOTS){id_groupe=#CLE}{par titre}>
-		#SET{titre_groupe,#TYPE}
-		<B_teste>
-		<BOUCLE_teste(CONDITION){si #GET{mots}}>
-			<B_tuto>
-				#SET{data,#GET{data}|array_merge{#ARRAY{#TITRE,#ID_MOT}}}
-			<BOUCLE_tuto(TUTOS){id_mot}{mots 100% #GET{mots}}{lang IN #ENV{langue, #ENV{langues_def}}}> </BOUCLE_tuto>
-		</BOUCLE_teste>
-			<B_tuto_alter>
-				#SET{data,#GET{data}|array_merge{#ARRAY{#TITRE,#ID_MOT}}}
-			<BOUCLE_tuto_alter(TUTOS){id_mot}{lang IN #ENV{langue, #ENV{langues_def}}}> </BOUCLE_tuto_alter>
-		<//B_teste>
+	<B_groupe>
+	<BOUCLE_groupe(GROUPES_MOTS){id_groupe=#CLE}{par titre}>
+	<B_mots>
+		#SET{titre_groupe,#TITRE}
+		<BOUCLE_mots(MOTS){id_groupe}{par titre}>
+			<B_teste>
+			<BOUCLE_teste(CONDITION){si #GET{mots}}>
+				<B_tuto>
+					#SET{data,#GET{data}|array_merge{#ARRAY{#TITRE,#ID_MOT}}}
+				<BOUCLE_tuto(TUTOS){id_mot}{mots 100% #GET{mots}}{lang IN #ENV{langue, #ENV{langues_def}}}> </BOUCLE_tuto>
+			</BOUCLE_teste>
+				<B_tuto_alter>
+					#SET{data,#GET{data}|array_merge{#ARRAY{#TITRE,#ID_MOT}}}
+				<BOUCLE_tuto_alter(TUTOS){id_mot}{lang IN #ENV{langue, #ENV{langues_def}}}> </BOUCLE_tuto_alter>
+			<//B_teste>
+		</BOUCLE_mots>
 	</BOUCLE_groupe>
+	</B_groupe>
+
 
 	[(#REM) Composition des saisies]
 	#SET{data,#GET{data}|array_flip}
