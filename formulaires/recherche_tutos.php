@@ -29,6 +29,3 @@ function formulaires_recherche_tutos_charger_dist(){
 	$valeurs['mots'] = $mots;
 	return $valeurs;
 }
-
-
-
