@@ -1,0 +1,42 @@
+<BOUCLE_content(TUTOS){id_tuto}{tout}>
+<article class="content-principal">
+	<header class="cartouche">
+		[(#LOGO_TUTO|image_reduire{200,200})]
+		<h1 class="#EDIT{titre}">#TITRE</h1>
+		<div class="postmeta">
+			<B_tags>
+			<span class="tags">
+				<ul class="inline list-inline">
+					<BOUCLE_tags(MOTS){id_tuto}{'/'}>
+					<li><a class="label" href="#URL_MOT">
+							#TITRE</a></li>
+					</BOUCLE_tags>
+				</ul>
+			</span>
+			</B_tags>
+		</div>
+	</header>
+
+	<div class="main">
+		[<div class="#EDIT{descriptif} chapo">(#DESCRIPTIF)</div>]
+
+		[<div class="resultat[ (#RESULTAT*|strlen|?{'',vide})]">
+			<label><:tuto:champ_resultat_label:> : </label>
+			<div dir="#LANG_DIR" class="#EDIT{resultat} resultat">(#RESULTAT|propre)</div>
+		</div>]
+
+		[<div class="commentaires[ (#COMMENTAIRES*|strlen|?{'',vide})]">
+			<label><:tuto:champ_commentaires_label:> : </label>
+			<div dir="#LANG_DIR" class="#EDIT{commentaires} commentaires">(#COMMENTAIRES|propre)</div>
+		</div>]
+	</div>
+	<aside>
+		[<div class="url[ (#URL*|strlen|?{'',vide})]">
+			<a href="#URL">(#URL)</a>
+		</div>]
+	</aside>
+	<footer>
+		[<div class="notes"><h2><:info_notes:></h2>(#NOTES)</div>]
+	</footer>
+</article>
+</BOUCLE_content>
