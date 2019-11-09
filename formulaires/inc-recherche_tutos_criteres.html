@@ -1,10 +1,10 @@
-#SET{mots,#ENV{mots}}
+#SET{mots_env,#ENV{mots,#ARRAY}}
 [(#REM) Les langues des tutos corespondants aux critères]
 #SET{langues,#ARRAY}
-<BOUCLE_tutos_langues(TUTOS) {si #GET{mots}|non}{fusion lang}>
+<BOUCLE_tutos_langues(TUTOS) {si #GET{mots_env}|non}{fusion lang}>
 	#SET{langues, #GET{langues}|array_merge{#ARRAY{#LANG,#LANG|traduire_nom_langue}}}
 </BOUCLE_tutos_langues>
-	<BOUCLE_tutos_langues_mots(TUTOS){mots 100% #GET{mots}}{fusion lang}>
+	<BOUCLE_tutos_langues_mots(TUTOS){mots 100% #GET{mots_env}}{fusion lang}>
 		#SET{langues, #GET{langues}|array_merge{#ARRAY{#LANG,#LANG|traduire_nom_langue}}}
 	</BOUCLE_tutos_langues_mots>
 <//B_tutos_langues>
@@ -30,19 +30,19 @@
 	#SET{request,#ENV{#VALEUR}}
 
 	[(#REM) Enlève la valeur du champ concerné afin de ne pas l'autolimiter]
-	#SET{mots,#GET{mots}|array_diff{#LISTE{#GET{request}}}}
+	#SET{mots_specifique,#GET{mots_env}|array_diff{#LISTE{#GET{request}}}}
 
 	[(#REM) Ajouter aux options les mots qui donneront un résultat]
 	<B_groupe>
 	<BOUCLE_groupe(GROUPES_MOTS){id_groupe=#CLE}{par titre}>
 	<B_mots>
 		#SET{titre_groupe,#TITRE}
-		<BOUCLE_mots(MOTS){id_groupe}{par titre}>
+		<BOUCLE_mots(MOTS){id_groupe=#CLE}{par titre}>
 			<B_teste>
-			<BOUCLE_teste(CONDITION){si #GET{mots}}>
+			<BOUCLE_teste(CONDITION){si #GET{mots_specifique}}>
 				<B_tuto>
 					#SET{data,#GET{data}|array_merge{#ARRAY{#TITRE,#ID_MOT}}}
-				<BOUCLE_tuto(TUTOS){id_mot}{mots 100% #GET{mots}}{lang IN #ENV{langue, #ENV{langues_def}}}> </BOUCLE_tuto>
+				<BOUCLE_tuto(TUTOS){id_mot}{mots 100% #GET{mots_specifique}}{lang IN #ENV{langue, #ENV{langues_def}}}> </BOUCLE_tuto>
 			</BOUCLE_teste>
 				<B_tuto_alter>
 					#SET{data,#GET{data}|array_merge{#ARRAY{#TITRE,#ID_MOT}}}
@@ -50,8 +50,6 @@
 			<//B_teste>
 		</BOUCLE_mots>
 	</BOUCLE_groupe>
-	</B_groupe>
-
 
 	[(#REM) Composition des saisies]
 	#SET{data,#GET{data}|array_flip}
@@ -70,6 +68,7 @@
 		}
 	}
 </BOUCLE_criteres>
+
 [(#REM) Génération de champs critères]
 #GENERER_SAISIES{
 	#ARRAY{
