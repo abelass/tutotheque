@@ -66,6 +66,8 @@
 		});
 
 		args.mots = mots;
+		args.lang = '#ENV{lang}';
+		args.langue	= langue;
 		args.recherche_avancee = [];
 
 		if ($(this).is(':checked')) {
@@ -77,9 +79,6 @@
 		}
 
 		$('.editer_recherche_avancee .choix label').html(remplace);
-
-
-		args.lang	= langue;
 
 		ajaxReload('recherche_criteres', {
 			args : args,
