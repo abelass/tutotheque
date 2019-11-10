@@ -8,12 +8,12 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// C
-	'champ_lang' => 'Langue',
-	'choix_tout' => 'Tout',
+	'champ_lang' => 'Taal',
+	'choix_tout' => 'Alle',
 
 	// F
-	'fieldset_recherche_avancee_label' => 'Recherche avancée',
-	'fieldset_recherche_simple_label' => 'Recherche simple',
+	'fieldset_recherche_avancee_label' => 'Geavanceerd zoeken',
+	'fieldset_recherche_simple_label' => 'Eenvoudig zoeken',
 
 	// T
 	'tutotheque_titre' => 'Tutothèque',
