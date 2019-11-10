@@ -1,6 +1,6 @@
 <?php
 /**
- * Optionsr Tutothèque
+ * Options Tutothèque
  *
  * @plugin     Tutothèque
  * @copyright  2019
@@ -13,4 +13,4 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
-	$GLOBALS['forcer_lang'] = true;
+$GLOBALS['forcer_lang'] = true;
