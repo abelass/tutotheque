@@ -1,27 +1,19 @@
 <paquet
 	prefix="tutotheque"
 	categorie="squelette"
-	version="1.0.4.7"
+	version="1.0.4.8"
 	etat="dev"
 	compatibilite="[3.2.3;3.2.*]"
 	logo="prive/themes/spip/images/tutotheque-64.png"
 	documentation="https://github.com/abelass/tutotheque"
 >
-	<!--
-		Paquet généré le 2019-03-08 15:34:54
-		(Vous pouvez bien entendu supprimer ces commentaires)
-	-->
 
 	<nom>Tutothèque</nom>
 	<!-- Votre tutothèque -->
 
-	<!-- cette balise peut être présente plusieurs fois s'il y a plusieurs auteurs -->
 	<auteur lien='https://web-simple.eu'>Rainer Müller</auteur>
 
-
-
 	<licence>GNU/GPL v3</licence>
-
 
 	<necessite nom="wsps_html5" compatibilite="[4.0.0;4.*.*]" />
 	<necessite nom="wsp_ml" compatibilite="[1.0.0;]" />
