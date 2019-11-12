@@ -11,7 +11,7 @@
 
 #SET{saisies,#ARRAY{
 		0,#ARRAY{
-			saisie,selection,
+			saisie,checkbox,
 			options,#ARRAY{
 				nom,langue,
 				label,\<:tutotheque:champ_lang:\>,
@@ -56,7 +56,7 @@
 	#SET{saisies,#GET{saisies}|array_merge{
 			#ARRAY{
 				#COMPTEUR_BOUCLE,#ARRAY{
-					saisie,selection,
+					saisie,checkbox,
 					options,#ARRAY{
 						nom,#VALEUR,
 						label,#GET{titre_groupe},

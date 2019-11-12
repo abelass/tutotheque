@@ -1,8 +1,46 @@
 @import 'css/variables';
 @import 'css/variables_perso';
 
+/* Genéral */
+#barre_social, #footer {
+	background-color: #ef783e;
+}
+
+#barre_social {
+	.page {
+		margin-top: 0;
+		padding: 0;
+		text-align: right;
+	}
+}
+
+#header {
+	border-bottom: 1px solid #e6e6e6;
+}
+
+#footer {
+	p {
+		margin : 0;
+		padding: 1.5em 0;
+	}
+	.page {
+		background-color: transparent;
+		margin-bottom: 0;
+	}
+}
+
+.page {
+	box-shadow: none;
+	border:none;
+	background-color: transparent;
+	.main {
+		background-color: transparent;
+	}
+}
+
 /* Banner */
 #logo_site_spip {font-size: 0}
+
 
 /* Formulaire recherche */
 .formulaire_spip {

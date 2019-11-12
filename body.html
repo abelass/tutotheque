@@ -1,0 +1,33 @@
+<body>
+	<div id="barre_social">
+		<div class="page">
+			<a href="" class=>teste</a>
+		</div>
+	</div>
+	<section>
+		<header id="header">
+			<div class="page">
+				<INCLURE{fond=header/#ENV{type-page},env} />
+				[<nav class="nav" id="nav">
+						(#INCLURE{fond=inclure/nav,env})
+				</nav>]
+		</div>
+		</header>
+		<div class="page grid">
+			<aside class="extra1 col" id="extra1">
+				<INCLURE{fond=extra1/#ENV{type-page},env} />
+			</aside>
+			<div class="content" id="content">
+				<INCLURE{fond=content/#ENV{type-page},env} />
+			</div>
+			<aside class="extra2 col" id="extra2">
+				<INCLURE{fond=extra2/#ENV{type-page},env} />
+			</aside>
+		</div>
+		<footer id="footer">
+			<div class="page">
+				<INCLURE{fond=footer/#ENV{type-page},env} />
+			</div>
+			</footer>
+	</section>
+</body>
