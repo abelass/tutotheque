@@ -24,7 +24,6 @@
 
 [(#REM) Préparation des saisies]
 [(#REM) les mots clés]
-<BOUCLE_teste_ra(CONDITION){si #VAL{oui}|in_array{#ENV{recherche_avancee}}}>
 <BOUCLE_criteres(DATA){source tableau,#ENV{_criteres}}>
 	#SET{data,#ARRAY}
 	#SET{request,#ENV{#VALEUR}}
@@ -76,7 +75,6 @@
 				saisie,fieldset,
 				options,#ARRAY{
 					nom,recherche_avancee,
-					label, \<:tutotheque:fieldset_recherche_avancee_label:\>,
 				},
 				saisies,#GET{saisies}
 			}
@@ -133,6 +131,3 @@
 	});
 });
 </script>
-</BOUCLE_teste_ra>
-<br class="hidden">
-<//B_teste_ra>

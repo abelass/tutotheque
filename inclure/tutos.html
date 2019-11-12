@@ -16,35 +16,30 @@
 </BOUCLE_tutos>
 
 <B_tutos_langues>
+<div class="tutos flex">
 #ANCRE_PAGINATION
-<table class="table table-striped spip g-my-50">
-	<thead>
-		<tr>
-			<td><:ecrire:info_titre:></td>
-			<td><:tutotheque:tags:></td>
-		</tr>
-	</thead>
-	<tbody>
 	<BOUCLE_tutos_langues(TUTOS){id_tuto IN #GET{id_tuto}}{par titre}{pagination 20}>
-		<tr>
-			[<td>
-				<a
-					href="#URL_TUTO"
-					title="[(#TITRE|supprimer_tags)]"
-					[hreflang="(#ENV{lang}|=={#LANG}|non|?{#LANG})"]>
-					(#TITRE)
-				</a>
-			</td>]
-			<B_organisations>
-			<td><BOUCLE_organisations (MOTS) {id_tuto} {', '}>
-				<a href="#URL_MOT" title="#INFO_TITRE{groupe_mots,#ID_GROUPE}">#TITRE</a>
-				</BOUCLE_organisations></td>
-			</B_organisations>
-		</tr>
+	<div class="item">
+		<a
+			href="#URL_TUTO"
+			title="[(#TITRE|supprimer_tags)]">
+					[(#LOGO_TUTO|image_reduire{180})]
+		</a>
+		<a
+			class="h2"
+			href="#URL_TUTO"
+			title="[(#TITRE|supprimer_tags)]"
+			[hreflang="(#ENV{lang}|=={#LANG}|non|?{#LANG})"]>
+				#TITRE
+		</a>
+		<BOUCLE_organisations (MOTS) {id_tuto}{id_groupe IN 2,6}>
+			<div>#TITRE</div>
+			</BOUCLE_organisations>
+	</div>
 	</BOUCLE_tutos_langues>
-	</tbody>
-</table>
+
 	[(#PAGINATION{precedent_suivant,ajax})]
+</div>
 </B_tutos_langues>
 <p>Pas de tutos</p>
 <//B_tutos_langues>

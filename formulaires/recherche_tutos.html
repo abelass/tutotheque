@@ -13,29 +13,28 @@
 		<div>
 			<div class="editer-groupe">
 				[(#ENV{action}|form_hidden)]
-
 				[(#SAISIE{input,recherche,label=<:spip:info_rechercher:>})]
+				<div class="body">
+					<div class="fields">
+						<INCLURE{
+							fond=formulaires/inc-recherche_tutos_criteres,
+							env,
+							langues_def=#GET{langues_def},
+							ajax=recherche_criteres}/>
 
-				[(#SAISIE{checkbox,recherche_avancee,
-					label=<:tutotheque:fieldset_recherche_avancee_label:>,
-					data=#ARRAY{oui,<:tutotheque:fieldset_recherche_avancee_label:>}
-				})]
-
-				<INCLURE{
-					fond=formulaires/inc-recherche_tutos_criteres,
-					env,
-					langues_def=#GET{langues_def},
-					ajax=recherche_criteres}/>
-
-				<p class="boutons">
-					<input type="submit" class="submit" value="<:info_rechercher:>" />
-				</p>
+							<input type="submit" class="submit" value="<:info_rechercher:>" />
+						</div>
+					<div class="resultat">
+						[(#REM) tutos trouvés ]
+						<INCLURE{fond=inclure/tutos,env,langues_def=#GET{langues_def},ajax}/>
+					</div>
+				</div>
 			</div>
-			[(#REM) tutos trouvés ]
-			<INCLURE{fond=inclure/tutos,env,langues_def=#GET{langues_def},ajax}/>
 		</div>
 	</form>
 </div>
+
+
 
 <script type="text/javascript">
 	$( document ).ready(function() {

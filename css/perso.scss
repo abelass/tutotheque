@@ -63,16 +63,31 @@
 
 
 /* Formulaire recherche */
-.formulaire_spip {
-	.editer_recherche_avancee {
-		> label{
-			display: none;
+
+.formulaire_spip.formulaire_recherche_tutos {
+	margin-bottom: 1.5em;
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	.body {
+		display: flex;
+		.fields {
+			width: 27%;
 		}
-		label {
-			color: $link-color;
+		.resultat {
+			width: 70%;
 		}
-	}
-	.fieldset_recherche_avancee legend  {
-		display: none;
+		.tutos {
+			justify-content: space-between;
+			.item {
+				background-color: #fff;
+				width: 25%;
+				padding: 1em;
+				margin-bottom: 1em;
+				.h2 {
+					font-size: 1.1em;
+				}
+			}
+		}
 	}
 }
