@@ -16,5 +16,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'fieldset_recherche_simple_label' => 'Recherche simple',
 
 	// T
+	'tags' => 'Mots clés :',
 	'tutotheque_titre' => 'Tutothèque',
 );
