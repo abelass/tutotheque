@@ -16,7 +16,27 @@
 
 #header {
 	border-bottom: 1px solid #e6e6e6;
+	.span3 {
+		display: inline-flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		nav, > div {
+			width: 50%;
+		}
+		#nav input#show-menu[type="checkbox"] {
+		display: none;
+		}
+	}
 }
+
+#nav .navbar li a {
+	border: none;
+}
+
+.formulaire_menu_lang select {
+  width: auto;
+}
+
 
 #footer {
 	p {
