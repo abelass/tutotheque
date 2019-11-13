@@ -7,8 +7,14 @@
 	})]
 </BOUCLE_partenaires_types>
 <div class="row">
-	<INCLURE{fond=inclure/partenaires, id_partenaire=#GET{partenaires_1}, class=soutien span3} />
-	<INCLURE{fond=inclure/partenaires, id_partenaire=#GET{partenaires_2}, class=soutien span3} />
+	<INCLURE{fond=inclure/partenaires,
+		id_partenaire=#GET{partenaires_1},
+		class=soutien span3,
+		titre=#INFO_TITRE{partenaires_type,1}} />
+	<INCLURE{fond=inclure/partenaires,
+	id_partenaire=#GET{partenaires_2},
+		class=soutien span3,
+		titre=#INFO_TITRE{partenaires_type,2}, width=50} />
 	<section class="text span3">
 		<p>
 			Transformathèque asbl<br>

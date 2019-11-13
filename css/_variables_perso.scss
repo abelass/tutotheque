@@ -5,6 +5,9 @@
 //** Background color for `<body>`.
 $body-bg:               #f3f1f2;
 
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gap:          0;
+
 //* Navbar
 $navbar-default-bg: transparent;
 $navbar-default-link-color: #000;

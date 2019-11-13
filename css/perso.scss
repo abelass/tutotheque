@@ -121,6 +121,7 @@
 			justify-content: space-between;
 			.item {
 				@include main_box(5px, #fff, 1em, 28%);
+				text-align: center;
 				margin-bottom: 1em;
 				.h2 {
 					font-size: 1.1em;
@@ -143,6 +144,28 @@
 			}
 			.editer:last-child > label {
 				border-radius: 0 0 5px 5px ;
+			}
+		}
+	}
+}
+
+/* Tuto */
+
+.page_tuto {
+	.content-principal {
+		justify-content: space-between;
+		.principal {
+			@include main_box(5px, #fff, 1em, 55%);
+		}
+		aside {
+			@include main_box(5px, #fff, 1.5em, 30%);
+			img {
+				float: none;
+				margin: 0 auto 1.5em auto;
+				display: block;
+			}
+			ul {
+				padding: 0;
 			}
 		}
 	}

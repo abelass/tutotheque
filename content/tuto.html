@@ -1,35 +1,36 @@
 <BOUCLE_content(TUTOS){id_tuto}{tout}>
-<article class="content-principal">
-	<header class="cartouche">
-		[(#LOGO_TUTO|image_reduire{200,200})]
-		<h1 class="#EDIT{titre}">#TITRE</h1>
+<article class="content-principal row">
+	<div class="principal">
+		<header class="cartouche">
+			<h1 class="#EDIT{titre}">#TITRE</h1>
+		</header>
+		<div class="main">
+			[<h2><:info_descriptif:></h2>
+			<div class="#EDIT{descriptif} descriptif">(#DESCRIPTIF)</div>]
+			[<h2><:tuto:champ_commentaires_label:></h2>
+			<div class="#EDIT{commentaires} commentaires">(#COMMENTAIRES|propre)</div>]
+			[<h2><:tuto:champ_url_label:></h2>
+			<div class="url">
+				<a href="#URL">(#URL)</a>
+			</div>]
+		</div>
+	</div>
+	<aside class="span3">
+		[(#LOGO_TUTO|image_reduire{220})]
+		<B_tags>
 		<div class="postmeta">
-			<B_tags>
-			<span class="tags">
-				<ul class="inline list-inline">
-					<BOUCLE_tags(MOTS){id_tuto}{'/'}>
-					<li><a class="label" href="#URL_MOT" title="#INFO_TITRE{groupe_mots,#ID_GROUPE}">
+				<ul class="list mots">
+					<BOUCLE_tags(MOTS){id_tuto}>
+					<li>
+						<strong>#INFO_TITRE{groupe_mots,#ID_GROUPE}:</strong>
+						<a class="label" href="#URL_MOT" title="#INFO_TITRE{groupe_mots,#ID_GROUPE}">
 							#TITRE</a></li>
 					</BOUCLE_tags>
 				</ul>
-			</span>
-			</B_tags>
 		</div>
-	</header>
-
-	<div class="main">
-		[<div class="#EDIT{descriptif} chapo">(#DESCRIPTIF)</div>]
-
-		[<div class="commentaires[ (#COMMENTAIRES*|strlen|?{'',vide})]">
-			<label><:tuto:champ_commentaires_label:> : </label>
-			<div dir="#LANG_DIR" class="#EDIT{commentaires} commentaires">(#COMMENTAIRES|propre)</div>
-		</div>]
-	</div>
-	<aside>
-		[<div class="url[ (#URL*|strlen|?{'',vide})]">
-			<a href="#URL">(#URL)</a>
-		</div>]
+		</B_tags>
 	</aside>
+
 	<footer>
 		[<div class="notes"><h2><:info_notes:></h2>(#NOTES)</div>]
 	</footer>
