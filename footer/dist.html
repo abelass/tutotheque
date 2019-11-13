@@ -1,7 +1,45 @@
-<p class="colophon">
-[(#SESSION{id_auteur}|oui)<a href="#URL_LOGOUT" rel="nofollow"><:icone_deconnecter:></a>][
-(#SESSION{id_auteur}|non)<a href="[(#URL_PAGE{login}|parametre_url{url,#SELF|parametre_url{url,''}})]" rel="nofollow" class='login_modal'><:lien_connecter:></a>][<span class="sep">
-(#AUTORISER{ecrire})| </span><a href="#EVAL{_DIR_RESTREINT_ABS}"><:espace_prive:></a>]<span class="sep"> |
-</span><a rel="contents" href="#URL_PAGE{plan}"><:plan_site:></a><span class="sep"> |
-</span><a href="#URL_PAGE{backend}" rel="alternate" title="<:syndiquer_site:>">[(#CHEMIN{feed.png}|balise_img{<:icone_suivi_activite:>})]&nbsp;RSS&nbsp;2.0</a> | <a href="http://www.spip.net/" title="<:site_realise_avec_spip:>"><:site_realise_avec_spip:></a>  <:par_auteur:> <a href="http://websimple.be/">Web Simple</a>
-</p>
+#SET{partenaires_1,#ARRAY}
+#SET{partenaires_2,#ARRAY}
+<BOUCLE_partenaires_types(partenaires_types_liens){id_type IN 1,2}{objet=partenaire}>
+	[(#ID_TYPE|=={1}|?{
+		#SET{partenaires_1,#GET{partenaires_1}|push{#ID_OBJET}},
+		#SET{partenaires_2,#GET{partenaires_2}|push{#ID_OBJET}}
+	})]
+</BOUCLE_partenaires_types>
+<div class="row">
+	<INCLURE{fond=inclure/partenaires, id_partenaire=#GET{partenaires_1}, class=soutien span3} />
+	<INCLURE{fond=inclure/partenaires, id_partenaire=#GET{partenaires_2}, class=soutien span3} />
+	<section class="text span3">
+		<p>
+			Transformathèque asbl<br>
+			Siège social : Rue de Loncin 1, 1060 St-Gilles/Bruxelles	<br>
+			Numéro d'entreprise : 0631.926.096	<br>
+			[(#VAL{<a href="mailto:contact@transformatheque.be">contact@transformatheque.be</a>}|mailcrypt)]
+		</p>
+		<p>
+			<a href="https://www.spip.net/" title="<:site_realise_avec_spip:>">
+				<:site_realise_avec_spip:></a>  <:par_auteur:> <a href="https://web-simple.eu">Web Simple
+			</a><br>
+			Design : <a href="">Charlotte Dion</a>
+		</p>
+	</section>
+</div>
+
+<!-- Matomo -->
+<script type="text/javascript">
+	var _paq = window._paq || [];
+	/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+	_paq.push(["setCookieDomain", "*.tutotheque.be"]);
+	_paq.push(["setDomains", ["*.tutotheque.be","*.www.tutotheque.be"]]);
+	_paq.push(['trackPageView']);
+	_paq.push(['enableLinkTracking']);
+	(function() {
+		var u="https://piwik.websimple.be/";
+		_paq.push(['setTrackerUrl', u+'matomo.php']);
+		_paq.push(['setSiteId', '8']);
+		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+		g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+	})();
+</script>
+<noscript><p><img src="https://piwik.websimple.be/matomo.php?idsite=8&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Matomo Code -->
