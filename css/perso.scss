@@ -107,7 +107,6 @@
 			@include main_box(15px, #f1f2f7, 0.2em 1em);
 		}
 	}
-
 	.body {
 		display: grid;
 		grid-template-columns: 20% 80%;
@@ -126,6 +125,13 @@
 				.h2 {
 					font-size: 1.1em;
 				}
+				> a {
+					display: block;
+				}
+				img {
+					float: none;
+					margin: 0 auto 1em auto;
+				}
 			}
 
 		}
@@ -133,24 +139,42 @@
 	.fieldset_recherche_avancee {
 		.editer-groupe {
 			.editer {
+				padding-bottom: 0;
 				> label {
-				@include main_box(0, #fff, 0.2em, 100%);
+					border-bottom: 1px solid #e2e6f0;
+					@include main_box(0, #fff, 0.5em 0em 0.5em 0.5em, 100%);
+				}
+				.choix {
+					width: 100%;
+					padding: 0.5em 0 0.5em 0.5em;
+					background-color: #f1f2f7;
+					border-bottom: 1px solid #e2e6f0;
 				}
 			}
 			.editer:first-child {
 				> label {
-				@include main_box(5px 5px 0 0, #fff, 0.2em, 100%);
+				@include main_box(5px 5px 0 0, #fff, 0.5em 0 0.5em 0.5em, 100%);
 				}
 			}
 			.editer:last-child > label {
 				border-radius: 0 0 5px 5px ;
 			}
+			.editer:not(:first-child) {
+				padding-top: 0;
+			}
 		}
+		//.editer-groupe
+	}
+}
+
+/* Home */
+.rubrique_home {
+	#content  h1 {
+		display:none;
 	}
 }
 
 /* Tuto */
-
 .page_tuto {
 	.content-principal {
 		justify-content: space-between;
