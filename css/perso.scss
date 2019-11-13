@@ -1,5 +1,6 @@
 @import 'css/variables';
 @import 'css/variables_perso';
+@import 'css/mixins_perso';
 
 /* Genéral */
 #barre_social, #footer {
@@ -83,24 +84,51 @@
 	padding: 0;
 	border: none;
 	background-color: transparent;
+	.editer_recherche.saisie_input {
+		display: grid;
+		grid-template-columns: 20% 80%;
+	}
+	.editer > label {
+		display: inline-block;
+	}
+	#champ_recherche {
+		@include main_box(5px, #fff, 0.2em);
+	}
 	.body {
-		display: flex;
+		display: grid;
+		grid-template-columns: 20% 80%;
 		.fields {
-			width: 27%;
-		}
-		.resultat {
-			width: 70%;
+			padding-right: 1em;
+			input {
+				margin-left: 0.5em;
+			}
 		}
 		.tutos {
 			justify-content: space-between;
 			.item {
-				background-color: #fff;
-				width: 25%;
-				padding: 1em;
+				@include main_box(5px, #fff, 1em, 28%);
 				margin-bottom: 1em;
 				.h2 {
 					font-size: 1.1em;
 				}
+			}
+
+		}
+	}
+	.fieldset_recherche_avancee {
+		.editer-groupe {
+			.editer {
+				> label {
+				@include main_box(0, #fff, 0.2em, 100%);
+				}
+			}
+			.editer:first-child {
+				> label {
+				@include main_box(5px 5px 0 0, #fff, 0.2em, 100%);
+				}
+			}
+			.editer:last-child > label {
+				border-radius: 0 0 5px 5px ;
 			}
 		}
 	}
