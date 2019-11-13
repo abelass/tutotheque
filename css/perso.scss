@@ -91,9 +91,15 @@
 	.editer > label {
 		display: inline-block;
 	}
-	#champ_recherche {
-		@include main_box(5px, #fff, 0.2em);
+	.editer_recherche {
+		@include main_box(5px, #fff, 0.5em, calc(100% - 1em));
+		margin-bottom: 1.5em;
+		margin-left: 0;
+		#champ_recherche {
+			@include main_box(15px, #f1f2f7, 0.2em 1em);
+		}
 	}
+
 	.body {
 		display: grid;
 		grid-template-columns: 20% 80%;
