@@ -16,12 +16,26 @@
 
 #header {
 	border-bottom: 1px solid #e6e6e6;
-	.span3 {
+	.right {
 		display: inline-flex;
 		flex-wrap: wrap;
-		align-items: flex-start;
-		nav, > div {
-			width: 50%;
+		justify-content: flex-end;
+
+		#nav {
+			width:80%;
+			.navbar {
+				text-align: right;
+				ul {
+					position: relative;
+				}
+				li {
+					float:none;
+				}
+			}
+		}
+
+		#formulaire_menu_lang{
+			width:20%;
 		}
 		#nav input#show-menu[type="checkbox"] {
 		display: none;
