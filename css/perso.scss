@@ -194,3 +194,46 @@
 		}
 	}
 }
+
+@media all and (max-width: 800px) {
+	.formulaire_spip.formulaire_recherche_tutos {
+	.body .tutos .item {
+			width : 26%;
+		}
+		.editer_recherche.saisie_input {
+			grid-template-columns: 35% 65%;
+		}
+	}
+}
+
+
+
+@media all and (max-width: 415px) {
+	body {
+		font-size: 0.8em;
+	}
+	.formulaire_spip.formulaire_recherche_tutos {
+		.body {
+			grid-template-columns: 35% 65%;
+				.tutos .item {
+				width : 100%;
+				padding: 0.2em;
+				margin-bottom: 0.5em;
+				a:first-child {
+					display: none
+				}
+				> div {
+					display: none;
+				}
+			}
+			.h2 {
+				margin: 0;
+			}
+			.fields input {
+				margin-left: 0;
+				padding: 0;
+			}
+		}
+	}
+}
+
