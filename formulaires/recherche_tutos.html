@@ -36,17 +36,3 @@
 
 
 
-<script type="text/javascript">
-	$( document ).ready(function() {
-		$('.checkbox_recherche_avancee').hide();
-		var texte = $('.editer_recherche_avancee .choix ').text().trim();
-
-		var texteOuvert = '<:tutotheque:fieldset_recherche_simple_label:>';
-		if ($('.editer_recherche_avancee input').is(':checked')) {
-			var remplace  = texte.replace(texte, texteOuvert);
-			$('.editer_recherche_avancee .choix label').html(remplace);
-		}
-	});
-
-</script>
-
