@@ -1,7 +1,7 @@
 #SET{mots_env,#ENV{mots,#ARRAY}}
 
 [(#REM) Les langues des tutos corespondants aux critères]
-#SET{langues,#ARRAY}
+#SET{langues,#ARRAY{'',\<:tutotheque:choix_tout:\>}}
 <BOUCLE_tutos_langues(TUTOS) {si #GET{mots_env}|non}{fusion lang}>
 	#SET{langues, #GET{langues}|array_merge{#ARRAY{#LANG,#LANG|traduire_nom_langue}}}
 </BOUCLE_tutos_langues>
@@ -93,8 +93,6 @@
 		var mots = [];
 		$.each(criteres, function(index, critere) {
 			var valeur = $('.editer_' + critere + ' input:checked').val();
-			console.log(valeur);
-			console.log(valeur);
 			if (critereChoisit !== undefined && critere == critereChoisit) {
 				args[critere] = valeurChoisit;
 			}
@@ -102,39 +100,27 @@
 				args[critere] = valeur;
 			}
 
+			if (valeur !== "") {
 				mots.push(valeur);
-
+			}
 		});
 		args.lang = '#ENV{lang}';
-		args.langue = $('.editer_langue').val();
+		args.langue = $('.editer_langue input:checked').val();
 		args.mots = mots;
-		console.log(mots);
 		return args;
 	}
 	var champ = ''
 	$.each(criteres, function(key, critere) {
-		//champs = document.querySelectorAll('.editer_' + critere + ' input');
-//console.log(champs);
-	$('.editer_' + critere + ' input').change(function(event) {
-		argsMot = parametres(critere, $(this).val());
-		ajaxReload('recherche_criteres', {
-			args : argsMot,
-			cache : false
-		});
-	});
-
-		/*champs.addEventListener('change', function(event) {
+		$('.editer_' + critere + ' input').change(function(event) {
 			argsMot = parametres(critere, $(this).val());
-
 			ajaxReload('recherche_criteres', {
 				args : argsMot,
 				cache : false
 			});
-		event.stopPropagation();
-		},true);*/
+		});
 	});
 
-	$('#champ_langue').on('change', function (e) {
+	$('.editer_langue input').on('change', function (e) {
 		var args = parametres();
 			ajaxReload('recherche_criteres', {
 				args : args,
