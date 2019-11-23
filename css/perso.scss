@@ -25,9 +25,6 @@
 			width:80%;
 			.navbar {
 				text-align: right;
-				ul {
-					position: relative;
-				}
 				li {
 					float:none;
 					a {
@@ -196,6 +193,19 @@
 }
 
 @media all and (max-width: 800px) {
+
+	#nav .navbar {
+		margin: 0;
+		width: 100%;
+	}
+	#header .right #nav {
+		width: 100%;
+	}
+
+	.formulaire_menu_lang select {
+		border: none;
+	}
+
 	.formulaire_spip.formulaire_recherche_tutos {
 	.body .tutos .item {
 			width : 26%;
