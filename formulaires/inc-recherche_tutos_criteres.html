@@ -1,4 +1,5 @@
 #SET{mots_env,#ENV{mots,#ARRAY}}
+
 [(#REM) Les langues des tutos corespondants aux critères]
 #SET{langues,#ARRAY}
 <BOUCLE_tutos_langues(TUTOS) {si #GET{mots_env}|non}{fusion lang}>
@@ -11,7 +12,7 @@
 
 #SET{saisies,#ARRAY{
 		0,#ARRAY{
-			saisie,checkbox,
+			saisie,radio,
 			options,#ARRAY{
 				nom,langue,
 				label,\<:tutotheque:champ_lang:\>,
@@ -25,7 +26,7 @@
 [(#REM) Préparation des saisies]
 [(#REM) les mots clés]
 <BOUCLE_criteres(DATA){source tableau,#ENV{_criteres}}>
-	#SET{data,#ARRAY}
+	#SET{data,#ARRAY{\<:tutotheque:choix_tout:\>,''}}
 	#SET{request,#ENV{#VALEUR}}
 
 	[(#REM) Enlève la valeur du champ concerné afin de ne pas l'autolimiter]
@@ -55,11 +56,10 @@
 	#SET{saisies,#GET{saisies}|array_merge{
 			#ARRAY{
 				#COMPTEUR_BOUCLE,#ARRAY{
-					saisie,checkbox,
+					saisie,radio,
 					options,#ARRAY{
 						nom,#VALEUR,
 						label,#GET{titre_groupe},
-						option_intro,\<:tutotheque:choix_tout:\>,
 						data,#GET{data},
 					},
 				}
@@ -85,33 +85,45 @@
 	$( document ).ready(function() {
 	var criteres = [(#ENV{_criteres}|json_encode)]
 
-	// Les arguments définits
+	// Les arguments définis
 	function parametres(critereChoisit, valeurChoisit) {
 		var args = {
 			_criteres: criteres,
 		};
 		var mots = [];
 		$.each(criteres, function(index, critere) {
-			var valeur = $('#champ_' + critere).val();
+			var valeur = $('.editer_' + critere + ' input:checked').val();
+			console.log(valeur);
+			console.log(valeur);
 			if (critereChoisit !== undefined && critere == critereChoisit) {
-				valeur = valeurChoisit;
-				args[critere] = valeur;
+				args[critere] = valeurChoisit;
 			}
 			else if (valeur !== "") {
-				mots.push(valeur);
 				args[critere] = valeur;
 			}
+
+				mots.push(valeur);
+
 		});
 		args.lang = '#ENV{lang}';
-		args.langue = $('#champ_langue').val();
+		args.langue = $('.editer_langue').val();
 		args.mots = mots;
+		console.log(mots);
 		return args;
 	}
-
+	var champ = ''
 	$.each(criteres, function(key, critere) {
-		var champ = document.querySelector('#champ_' + critere);
+		//champs = document.querySelectorAll('.editer_' + critere + ' input');
+//console.log(champs);
+	$('.editer_' + critere + ' input').change(function(event) {
+		argsMot = parametres(critere, $(this).val());
+		ajaxReload('recherche_criteres', {
+			args : argsMot,
+			cache : false
+		});
+	});
 
-		champ.addEventListener('change', function(event) {
+		/*champs.addEventListener('change', function(event) {
 			argsMot = parametres(critere, $(this).val());
 
 			ajaxReload('recherche_criteres', {
@@ -119,7 +131,7 @@
 				cache : false
 			});
 		event.stopPropagation();
-		},true);
+		},true);*/
 	});
 
 	$('#champ_langue').on('change', function (e) {

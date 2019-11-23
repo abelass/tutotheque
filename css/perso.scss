@@ -25,6 +25,9 @@
 			width:80%;
 			.navbar {
 				text-align: right;
+				ul {
+					right: 0;
+				}
 				li {
 					float:none;
 					a {

@@ -24,7 +24,7 @@ function formulaires_recherche_tutos_charger_dist(){
 		$valeurs[$critere] = _request($critere);
 		if(_request($critere)) {
 			$request = _request($critere);
-			$mots[] = $request[0];
+			$mots[] = $request;
 		}
 	}
 	$valeurs['mots'] = $mots;
