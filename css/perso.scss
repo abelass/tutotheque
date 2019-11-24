@@ -2,6 +2,10 @@
 @import 'css/variables_perso';
 @import 'css/mixins_perso';
 
+* {
+	box-sizing: border-box;
+}
+
 /* Genéral */
 #barre_social, #footer {
 	background-color: #ef783e;
@@ -86,26 +90,25 @@
 
 
 /* Formulaire recherche */
-
 .formulaire_spip.formulaire_recherche_tutos {
 	font-size: 0.9em;
-	margin-bottom: 1.5em;
+	margin: 0 0 1.5em 0;
 	padding: 0;
 	border: none;
 	background-color: transparent;
 	.editer_recherche.saisie_input {
 		display: grid;
-		grid-template-columns: 25% 75%;
-		width: 85%;
+		grid-template-columns: 26% 74%;
+		grid-gap: 0;
+		padding: 0;
 		label {
 			color: #a6adbe;
 			text-transform: uppercase;
 		}
 	}
 	.editer {
-		padding-top: 0;
-		padding-bottom: 0;
-
+		padding: 0;
+		margin: 0;
 			> label {
 			display: inline-block;
 			font-weight: normal;
@@ -115,24 +118,28 @@
 		@include main_box(5px, #fff, 0.5em, 100%);
 		margin-bottom: 1.5em;
 		margin-left: 0;
-		display: flex;
-		flex-wrap: nowrap;
-		> * {
-			margin-right:	1em;
-
+		padding: 0.5em 0;
+		display: grid;
+		grid-gap: 0;
+		grid-template-columns: 80% 20%;
+		.submit {
+			width: 80%;
 		}
 	}
 	.editer_recherche {
+		label {
+			padding-left: 0.75em;
+		}
 		#champ_recherche {
-			@include main_box(15px, #f1f2f7, 0.2em 1em);
+			@include main_box(15px, #f1f2f7, 0.2em 0, 80%);
 		}
 	}
 	.body {
+		width: 100%;
 		display: grid;
-		grid-template-columns: 20% 80%;
+		grid-template-columns: 21% calc(79% - 1em);
 		grid-gap: 1em;
 		.fields {
-			padding-right: 1em;
 			input {
 				margin-left: 0.5em;
 			}
@@ -143,7 +150,7 @@
 		.tutos {
 			justify-content: space-between;
 			.item {
-				@include main_box(5px, #fff, 1em, 28%);
+				@include main_box(5px, #fff, 1em, 32%);
 				text-align: center;
 				margin-bottom: 1em;
 				.h2 {
@@ -220,6 +227,14 @@
 	}
 }
 
+#footer {
+	.text {
+		p:first-child {
+			padding-top:0.5em;
+		}
+	}
+}
+
 /* Home */
 .rubrique_home {
 	#content  h1 {
@@ -253,9 +268,15 @@
 	#nav .navbar {
 		margin: 0;
 		width: 100%;
+		li a {
+			text-align: right;
+		}
 	}
-	#header .right #nav {
+	#header .right {
+		#nav, #formulaire_menu_lang {
 		width: 100%;
+		text-align: right;
+		}
 	}
 
 	.formulaire_menu_lang select {
@@ -263,11 +284,26 @@
 	}
 
 	.formulaire_spip.formulaire_recherche_tutos {
-	.body .tutos .item {
-			width : 26%;
-		}
 		.editer_recherche.saisie_input {
 			grid-template-columns: 35% 65%;
+		}
+	}
+	#footer {
+		p {
+			padding-top: 0;
+		}
+		h2 {
+			font-size: 1.2em;
+		}
+		.row {
+			display: flex;
+			> * {
+				width: 33%;
+			}
+		}
+		.spip_logos {
+			margin-right: 0.5em;
+			margin-bottom: 0.5em;
 		}
 	}
 }
@@ -280,7 +316,8 @@
 	}
 	.formulaire_spip.formulaire_recherche_tutos {
 		.body {
-			grid-template-columns: 35% 65%;
+			grid-template-columns: 35% calc(65% - 0.5em);
+			grid-gap: 0.5em;
 				.tutos .item {
 				width : 100%;
 				padding: 0.2em;
@@ -298,6 +335,17 @@
 			.fields input {
 				margin-left: 0;
 				padding: 0;
+			}
+		}
+	}
+	#footer {
+		.page {
+			text-align: center;
+		}
+		.row {
+			display: block;
+			> * {
+				clear: both
 			}
 		}
 	}
