@@ -12,8 +12,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'choix_tout' => 'Tout',
 
 	// F
-	'fieldset_recherche_avancee_label' => 'Recherche avancée',
-	'fieldset_recherche_simple_label' => 'Recherche simple',
+	'fieldset_filtres' => 'Filtres',
 
 	// T
 	'tags' => 'Mots clés :',

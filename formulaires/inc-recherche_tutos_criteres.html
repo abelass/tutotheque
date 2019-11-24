@@ -70,23 +70,24 @@
 </BOUCLE_criteres>
 
 <B_champs>
-<div class="fieldset fieldset_recherche_avancee saisie_fieldset">
+<div class="fieldset fieldset_filtres saisie_fieldset">
 	<fieldset>
+		<legend><:tutotheque:fieldset_filtres:></legend>
 		<div class="editer-groupe">
-<BOUCLE_champs(DATA){source tableau, #GET{saisies}}>
-	<BOUCLE_champ(DATA){source tableau, #VALEUR}>
-	<B_data>
+	<BOUCLE_champs(DATA){source tableau, #GET{saisies}}>
+		<BOUCLE_champ(DATA){source tableau, #VALEUR}>
+		<B_data>
 			<div class="editer editer_#NOM saisie_radio [(#COMPTEUR_BOUCLE|alterner{editer_odd,editer_even})]">
 				<label class="header">#LABEL</label>
 				<div class="champs">
-	<BOUCLE_data(DATA){source tableau, #DATA}>
+		<BOUCLE_data(DATA){source tableau, #DATA}>
 					<div class="choix choix_">
 						<input type="radio" name="#NOM" class="radio" id="champ_[(#NOM|concat{[_(#COMPTEUR_BOUCLE)]})]"[ (#ENV{#NOM}|=={#CLE}|oui)checked="checked" class="on"] value="#CLE">
 						<label for="champ_[(#NOM|concat{[_(#COMPTEUR_BOUCLE)]})]">#VALEUR</label>
 					</div>
-	</BOUCLE_data>
-				</div>
+		</BOUCLE_data>
 			</div>
+		</div>
 	</B_data>
 	</BOUCLE_champ>
 </BOUCLE_champs>
@@ -95,27 +96,10 @@
 </div>
 </B_champs>
 
-
-
-
-[(#REM) Génération de champs critères
-#GENERER_SAISIES{
-	#ARRAY{
-			0,#ARRAY{
-				saisie,fieldset,
-				options,#ARRAY{
-					nom,recherche_avancee,
-				},
-				saisies,#GET{saisies}
-			}
-		}
-	}
-]
-
 <script type="text/javascript">
 	$( document ).ready(function() {
 		var criteres = [(#ENV{_criteres}|json_encode)];
-		var filtersSelector = '.fieldset_recherche_avancee';
+		var filtersSelector = '.fieldset_filtres';
 
 		// Caches les filtres non actives.
 		 $(filtersSelector +" input[type=radio]:checked").each(function() {
@@ -140,7 +124,7 @@
 			};
 			var mots = [];
 			$.each(criteres, function(index, critere) {
-				var valeur = $(filtersSelector + '.editer_' + critere + ' input:checked').val();
+				var valeur = $(' .editer_' + critere + ' input:checked').val();
 				if (critereChoisit !== undefined && critere == critereChoisit) {
 					args[critere] = valeurChoisit;
 				}
