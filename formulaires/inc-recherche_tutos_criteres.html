@@ -1,7 +1,9 @@
 #SET{mots_env,#ENV{mots,#ARRAY}}
+#SET{label_lang,#VAL{tutotheque:champ_lang}|_T}
+#SET{nom_tout,#VAL{tutotheque:choix_tout}|_T}
 
 [(#REM) Les langues des tutos corespondants aux critères]
-#SET{langues,#ARRAY{'',\<:tutotheque:choix_tout:\>}}
+#SET{langues,#ARRAY{'',#GET{nom_tout}}}
 <BOUCLE_tutos_langues(TUTOS) {si #GET{mots_env}|non}{fusion lang}>
 	#SET{langues, #GET{langues}|array_merge{#ARRAY{#LANG,#LANG|traduire_nom_langue}}}
 </BOUCLE_tutos_langues>
@@ -10,23 +12,22 @@
 	</BOUCLE_tutos_langues_mots>
 <//B_tutos_langues>
 
-#SET{saisies,#ARRAY{
+[(#SET{saisies,#ARRAY{
 		0,#ARRAY{
 			saisie,radio,
 			options,#ARRAY{
 				nom,langue,
-				label,\<:tutotheque:champ_lang:\>,
-				option_intro,\<:tutotheque:choix_tout:\>,
+				label,#GET{label_lang},
 				data,#GET{langues}
 				}
 			}
 		}
-	}
+	})]
 
 [(#REM) Préparation des saisies]
 [(#REM) les mots clés]
 <BOUCLE_criteres(DATA){source tableau,#ENV{_criteres}}>
-	#SET{data,#ARRAY{\<:tutotheque:choix_tout:\>,''}}
+	#SET{data,#ARRAY{#GET{nom_tout},''}}
 	#SET{request,#ENV{#VALEUR}}
 
 	[(#REM) Enlève la valeur du champ concerné afin de ne pas l'autolimiter]
@@ -68,7 +69,36 @@
 	}
 </BOUCLE_criteres>
 
-[(#REM) Génération de champs critères]
+<B_champs>
+<div class="fieldset fieldset_recherche_avancee saisie_fieldset">
+	<fieldset>
+		<div class="editer-groupe">
+<BOUCLE_champs(DATA){source tableau, #GET{saisies}}>
+	<BOUCLE_champ(DATA){source tableau, #VALEUR}>
+	<B_data>
+			<div class="editer editer_langue saisie_radio editer_even">
+				<label class="header">#LABEL</label>
+				<div class="champs">
+	<BOUCLE_data(DATA){source tableau, #DATA}>
+					<div class="choix choix_">
+						<input type="radio" name="#NOM" class="radio" id="champ_langue_1" checked="checked" value="#CLE">
+						<label for="champ_langue_1" class="on">#VALEUR</label>
+					</div>
+	</BOUCLE_data>
+				</div>
+			</div>
+	</B_data>
+	</BOUCLE_champ>
+</BOUCLE_champs>
+		</div>
+	</fieldset>
+</div>
+</B_champs>
+
+
+
+
+[(#REM) Génération de champs critères
 #GENERER_SAISIES{
 	#ARRAY{
 			0,#ARRAY{
@@ -80,52 +110,55 @@
 			}
 		}
 	}
+]
 
 <script type="text/javascript">
 	$( document ).ready(function() {
-	var criteres = [(#ENV{_criteres}|json_encode)]
+		$(".fieldset_recherche_avancee .editer-groupe").accordion({header: "label.header"});
 
-	// Les arguments définis
-	function parametres(critereChoisit, valeurChoisit) {
-		var args = {
-			_criteres: criteres,
-		};
-		var mots = [];
-		$.each(criteres, function(index, critere) {
-			var valeur = $('.editer_' + critere + ' input:checked').val();
-			if (critereChoisit !== undefined && critere == critereChoisit) {
-				args[critere] = valeurChoisit;
-			}
-			else if (valeur !== "") {
-				args[critere] = valeur;
-			}
+		var criteres = [(#ENV{_criteres}|json_encode)]
 
-			if (valeur !== "") {
-				mots.push(valeur);
-			}
-		});
-		args.lang = '#ENV{lang}';
-		args.langue = $('.editer_langue input:checked').val();
-		args.mots = mots;
-		return args;
-	}
-	var champ = ''
-	$.each(criteres, function(key, critere) {
-		$('.editer_' + critere + ' input').change(function(event) {
-			argsMot = parametres(critere, $(this).val());
-			ajaxReload('recherche_criteres', {
-				args : argsMot,
-				cache : false
+		// Les arguments définis
+		function parametres(critereChoisit, valeurChoisit) {
+			var args = {
+				_criteres: criteres,
+			};
+			var mots = [];
+			$.each(criteres, function(index, critere) {
+				var valeur = $('.editer_' + critere + ' input:checked').val();
+				if (critereChoisit !== undefined && critere == critereChoisit) {
+					args[critere] = valeurChoisit;
+				}
+				else if (valeur !== "") {
+					args[critere] = valeur;
+				}
+
+				if (valeur !== "") {
+					mots.push(valeur);
+				}
+			});
+			args.lang = '#ENV{lang}';
+			args.langue = $('.editer_langue input:checked').val();
+			args.mots = mots;
+			return args;
+		}
+		var champ = ''
+		$.each(criteres, function(key, critere) {
+			$('.editer_' + critere + ' input').change(function(event) {
+				argsMot = parametres(critere, $(this).val());
+				ajaxReload('recherche_criteres', {
+					args : argsMot,
+					cache : false
+				});
 			});
 		});
-	});
 
-	$('.editer_langue input').on('change', function (e) {
-		var args = parametres();
-			ajaxReload('recherche_criteres', {
-				args : args,
-				cache : false
-			})
+		$('.editer_langue input').on('change', function (e) {
+			var args = parametres();
+				ajaxReload('recherche_criteres', {
+					args : args,
+					cache : false
+				})
+		});
 	});
-});
 </script>
