@@ -12,8 +12,3 @@
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
-
-function tutotheque_jqueryui_plugins($scripts){
-	$scripts[] = "jquery.ui.accordion";
-	return $scripts;
-}

@@ -21,7 +21,5 @@
 	<necessite nom="critere_mots" compatibilite="[4.3.0;]" />
 	<necessite nom="partenaires" compatibilite="[1.7.0;]" />
 
-	<pipeline nom="jqueryui_plugins" inclure="tutotheque_pipelines.php" />
-
 
 </paquet>

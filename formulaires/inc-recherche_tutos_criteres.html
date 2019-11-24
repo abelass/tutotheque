@@ -114,9 +114,24 @@
 
 <script type="text/javascript">
 	$( document ).ready(function() {
-		$(".fieldset_recherche_avancee .editer-groupe").accordion({header: "label.header"});
+		var criteres = [(#ENV{_criteres}|json_encode)];
+		var filtersSelector = '.fieldset_recherche_avancee';
 
-		var criteres = [(#ENV{_criteres}|json_encode)]
+		// Caches les filtres non actives.
+		 $(filtersSelector +" input[type=radio]:checked").each(function() {
+			var valeur = $(this).val();
+			if (valeur == "") {
+				 var champ = $(this).attr('name');
+				$(filtersSelector + ' .editer_' + champ + ' .champs').hide();
+			}
+		 });
+
+		// Ouvrir ou fermer un set de filtres.
+		$(filtersSelector + ' label.header').click(function() {
+			$(this).next().slideToggle();
+			return false;
+		});
+
 
 		// Les arguments définis
 		function parametres(critereChoisit, valeurChoisit) {
@@ -125,7 +140,7 @@
 			};
 			var mots = [];
 			$.each(criteres, function(index, critere) {
-				var valeur = $('.editer_' + critere + ' input:checked').val();
+				var valeur = $(filtersSelector + '.editer_' + critere + ' input:checked').val();
 				if (critereChoisit !== undefined && critere == critereChoisit) {
 					args[critere] = valeurChoisit;
 				}
