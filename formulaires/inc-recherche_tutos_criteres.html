@@ -104,15 +104,18 @@
 		// Caches les filtres non actives.
 		 $(filtersSelector +" input[type=radio]:checked").each(function() {
 			var valeur = $(this).val();
+			var champ = $(this).attr('name');
 			if (valeur == "") {
-				 var champ = $(this).attr('name');
 				$(filtersSelector + ' .editer_' + champ + ' .champs').hide();
+			}
+			else {
+				$(filtersSelector + ' .editer_' + champ + ' .champs').parent().addClass('open');
 			}
 		 });
 
 		// Ouvrir ou fermer un set de filtres.
 		$(filtersSelector + ' label.header').click(function() {
-			$(this).next().slideToggle();
+			$(this).next().slideToggle().parent().toggleClass('open');
 			return false;
 		});
 

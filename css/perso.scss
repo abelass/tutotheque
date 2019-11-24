@@ -137,18 +137,32 @@
 		}
 	}
 	.fieldset_filtres {
+		label.header:after {
+			content: '>';
+			text-align: right;
+			position: absolute;
+			right: 5px;
+			color: #a6adbe;
+		}
+		.open label.header:after {
+			transform: scale(1) rotate(90deg);
+		}
 		.editer-groupe {
 			.editer {
 				padding-bottom: 0;
 				> label {
 					border-bottom: 1px solid #e2e6f0;
 					@include main_box(0, #fff, 0.5em 0em 0.5em 0.5em, 100%);
+					font-weight: normal;
 				}
 				.choix {
 					width: 100%;
 					padding: 0.5em 0 0.5em 0.5em;
 					background-color: #f1f2f7;
 					border-bottom: 1px solid #e2e6f0;
+				}
+				.choix:last-child {
+					border-radius: 0 0 5px 5px ;
 				}
 			}
 			.editer:first-child {
@@ -162,8 +176,12 @@
 			.editer:not(:first-child) {
 				padding-top: 0;
 			}
+			.editer.open > label{
+				border-bottom-right-radius: 0;
+				border-bottom-left-radius: 0;
+			}
 		}
-		//.editer-groupe
+		//
 	}
 }
 
