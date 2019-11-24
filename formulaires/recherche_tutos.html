@@ -13,10 +13,12 @@
 		<div>
 			<div class="editer-groupe">
 				[(#ENV{action}|form_hidden)]
-				[(#SAISIE{input,recherche,label=<:spip:info_rechercher:>})]
+				<div class="head">
+				[(#SAISIE{input,recherche,label=<:mots_clefs:>})]
+				<input type="submit" class="submit" value="<:info_rechercher:>" />
+			</div>
 				<div class="body">
 					<div class="fields">
-						<input type="submit" class="submit" value="<:info_rechercher:>" />
 						<INCLURE{
 							fond=formulaires/inc-recherche_tutos_criteres,
 							env,

@@ -88,21 +88,41 @@
 /* Formulaire recherche */
 
 .formulaire_spip.formulaire_recherche_tutos {
+	font-size: 0.9em;
 	margin-bottom: 1.5em;
 	padding: 0;
 	border: none;
 	background-color: transparent;
 	.editer_recherche.saisie_input {
 		display: grid;
-		grid-template-columns: 20% 80%;
+		grid-template-columns: 25% 75%;
+		width: 85%;
+		label {
+			color: #a6adbe;
+			text-transform: uppercase;
+		}
 	}
-	.editer > label {
-		display: inline-block;
+	.editer {
+		padding-top: 0;
+		padding-bottom: 0;
+
+			> label {
+			display: inline-block;
+			font-weight: normal;
+		}
 	}
-	.editer_recherche {
-		@include main_box(5px, #fff, 0.5em, calc(100% - 1em));
+	.head {
+		@include main_box(5px, #fff, 0.5em, 100%);
 		margin-bottom: 1.5em;
 		margin-left: 0;
+		display: flex;
+		flex-wrap: nowrap;
+		> * {
+			margin-right:	1em;
+
+		}
+	}
+	.editer_recherche {
 		#champ_recherche {
 			@include main_box(15px, #f1f2f7, 0.2em 1em);
 		}
@@ -110,10 +130,14 @@
 	.body {
 		display: grid;
 		grid-template-columns: 20% 80%;
+		grid-gap: 1em;
 		.fields {
 			padding-right: 1em;
 			input {
 				margin-left: 0.5em;
+			}
+			input.submit {
+				margin-left:0;
 			}
 		}
 		.tutos {
@@ -137,6 +161,11 @@
 		}
 	}
 	.fieldset_filtres {
+		legend {
+			@include main_box(5px, #fff, 0.5em 0em 0.5em 0.5em, 100%);
+			margin-bottom: 0.5em;
+			font-weight: normal;
+		}
 		label.header:after {
 			content: '>';
 			text-align: right;
@@ -148,18 +177,24 @@
 			transform: scale(1) rotate(90deg);
 		}
 		.editer-groupe {
+			margin-bottom: 0.5em;
 			.editer {
 				padding-bottom: 0;
 				> label {
 					border-bottom: 1px solid #e2e6f0;
-					@include main_box(0, #fff, 0.5em 0em 0.5em 0.5em, 100%);
-					font-weight: normal;
+					@include main_box(0, #fff, 0.5em 0.1em 0.5em 0.5em, 100%);
 				}
 				.choix {
 					width: 100%;
 					padding: 0.5em 0 0.5em 0.5em;
 					background-color: #f1f2f7;
 					border-bottom: 1px solid #e2e6f0;
+					color: #a6adbe;
+					text-transform: uppercase;
+					font-size: 0.8em;
+					input {
+						margin-right: 0.3em;
+					}
 				}
 				.choix:last-child {
 					border-radius: 0 0 5px 5px ;
@@ -167,7 +202,7 @@
 			}
 			.editer:first-child {
 				> label {
-				@include main_box(5px 5px 0 0, #fff, 0.5em 0 0.5em 0.5em, 100%);
+				@include main_box(5px 5px 0 0, #fff, 0.5em 0.1em 0.5em 0.5em, 100%);
 				}
 			}
 			.editer:last-child > label {
