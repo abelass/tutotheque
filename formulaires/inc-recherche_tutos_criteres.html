@@ -76,13 +76,13 @@
 <BOUCLE_champs(DATA){source tableau, #GET{saisies}}>
 	<BOUCLE_champ(DATA){source tableau, #VALEUR}>
 	<B_data>
-			<div class="editer editer_langue saisie_radio editer_even">
+			<div class="editer editer_#NOM saisie_radio editer_even">
 				<label class="header">#LABEL</label>
 				<div class="champs">
 	<BOUCLE_data(DATA){source tableau, #DATA}>
 					<div class="choix choix_">
-						<input type="radio" name="#NOM" class="radio" id="champ_langue_1" checked="checked" value="#CLE">
-						<label for="champ_langue_1" class="on">#VALEUR</label>
+						<input type="radio" name="#NOM" class="radio" id="champ_[(#NOM|concat{[_(#COMPTEUR_BOUCLE)]})]"[ (#ENV{#NOM}|=={#CLE}|oui)checked="checked" class="on"] value="#CLE">
+						<label for="champ_[(#NOM|concat{[_(#COMPTEUR_BOUCLE)]})]">#VALEUR</label>
 					</div>
 	</BOUCLE_data>
 				</div>
