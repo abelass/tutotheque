@@ -76,7 +76,7 @@
 <BOUCLE_champs(DATA){source tableau, #GET{saisies}}>
 	<BOUCLE_champ(DATA){source tableau, #VALEUR}>
 	<B_data>
-			<div class="editer editer_#NOM saisie_radio editer_even">
+			<div class="editer editer_#NOM saisie_radio [(#COMPTEUR_BOUCLE|alterner{editer_odd,editer_even})]">
 				<label class="header">#LABEL</label>
 				<div class="champs">
 	<BOUCLE_data(DATA){source tableau, #DATA}>
