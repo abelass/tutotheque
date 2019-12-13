@@ -1,0 +1,403 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"te",
+				"text-align\tproperty"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"com",
+				"Git: Commit"
+			],
+			[
+				"ad",
+				"Git: Add All"
+			],
+			[
+				"m",
+				"Git: Merge"
+			],
+			[
+				"pul",
+				"Git: Pull"
+			],
+			[
+				"branc",
+				"Git: Change Branch"
+			],
+			[
+				"bra",
+				"Git: Change Branch"
+			],
+			[
+				"merg",
+				"Git: Merge"
+			],
+			[
+				"bran",
+				"Git: Change Branch"
+			],
+			[
+				"add",
+				"Git: Add All"
+			],
+			[
+				"comm",
+				"Git: Commit"
+			],
+			[
+				"ta",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"a",
+				"Git: Add All"
+			],
+			[
+				"braNC",
+				"Git: Change Branch"
+			],
+			[
+				"status",
+				"Git: Status"
+			],
+			[
+				"branch",
+				"Git: Change Branch"
+			],
+			[
+				"res",
+				"Git: Reset (hard) HEAD"
+			],
+			[
+				"tab",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"diff",
+				"Git: Diff"
+			],
+			[
+				"pus",
+				"Git: Push"
+			],
+			[
+				"commit",
+				"Git: Commit"
+			],
+			[
+				"dfif",
+				"Diff View: Show uncommitted changes"
+			],
+			[
+				"dif",
+				"Git: Diff"
+			],
+			[
+				"commi",
+				"Git: Commit"
+			],
+			[
+				"aDD",
+				"Git: Add All"
+			],
+			[
+				"ada",
+				"Git: Add All"
+			],
+			[
+				"qui",
+				"Git: Quick Add"
+			],
+			[
+				"co",
+				"Git: Commit"
+			],
+			[
+				"ar",
+				"PhpArrayConverter: Convert array"
+			],
+			[
+				"P",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"git:commit",
+				"Git: Commit"
+			],
+			[
+				"git:status",
+				"Git: Status"
+			],
+			[
+				"git:push",
+				"Git: Push"
+			],
+			[
+				"git:",
+				"Git: Pull"
+			],
+			[
+				"git:sta",
+				"git: status"
+			],
+			[
+				"git:pu",
+				"Git: Push"
+			],
+			[
+				"Package Control: Install Packag",
+				"Package Control: Install Package"
+			],
+			[
+				"SVN",
+				"Set Syntax: Java"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 306.0,
+		"history":
+		[
+			"git push",
+			"Package Control: Install Packag",
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": false,
+		"show_minimap": true,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": true,
+		"status_bar_visible": true
+	},
+	"expanded_folders":
+	[
+		"/run/user/1000/gvfs/sftp:host=128.199.33.21,user=sillacochebebe/home/sites/sillacochebebe.com/public_html/mirrors/rainer/themes/sillacochebebe"
+	],
+	"file_history":
+	[
+		"/home/abelass/git/squelettes_spip/tutotheque/formulaires/inc-recherche_tutos_criteres.html",
+		"/home/abelass/git/squelettes_spip/tutotheque/content/tuto.html",
+		"/home/abelass/git/squelettes_spip/tutotheque/formulaires/recherche_tutos.php",
+		"/home/abelass/git/squelettes_spip/tutotheque/tutotheque_pipelines.php",
+		"/home/abelass/git/squelettes_spip/tutotheque/inclure/tutos.html",
+		"/home/abelass/git/squelettes_spip/tutotheque/header/dist.html",
+		"/home/abelass/git/squelettes_spip/tutotheque/css/_variables_perso.scss",
+		"/home/abelass/git/squelettes_spip/tutotheque/footer/dist.html",
+		"/home/abelass/git/squelettes_spip/tutotheque/formulaires/recherche_tutos.html",
+		"/home/abelass/git/squelettes_spip/tutotheque/body.html",
+		"/home/abelass/git/squelettes_spip/tutotheque/inclure/barre_sociale.html",
+		"/home/abelass/git/squelettes_spip/tutotheque/inclure/partenaires.html",
+		"/home/abelass/git/squelettes_spip/tutotheque/paquet.xml",
+		"/home/abelass/git/squelettes_spip/tutotheque/css/perso.scss",
+		"/home/abelass/git/squelettes_spip/tutotheque/lang/tutotheque_en.php",
+		"/home/abelass/git/squelettes_spip/tutotheque/lang/tutotheque_fr.php",
+		"/home/abelass/git/squelettes_spip/tutotheque/lang/tutotheque_nl.php",
+		"/home/abelass/git/squelettes_spip/tutotheque/css/fonts.css",
+		"/home/abelass/git/squelettes_spip/tutotheque/tutotheque_options.php",
+		"/home/abelass/git/squelettes_spip/tutotheque/content/mot.html",
+		"/home/abelass/git/squelettes_spip/tutotheque/inclure/head.html",
+		"/home/abelass/git/squelettes_spip/tutotheque/extra1/dist.html",
+		"/home/abelass/git/squelettes_spip/tutotheque/css/web_fonts/Lato-Regular/styles.css",
+		"/home/abelass/git/squelettes_spip/tutotheque/css/web_fonts/Lato-Regular/preview.html",
+		"/home/abelass/git/squelettes_spip/tutotheque/fabrique_tutotheque.php",
+		"/home/abelass/git/spip/tutoriel/fabrique_tutoriel.php",
+		"/home/abelass/git/spip/tutoriel/prive/squelettes/navigation/tutos_fonctions.php",
+		"/home/abelass/git/spip/tutoriel/inc/tutoriel.php",
+		"/home/abelass/git/spip/tutoriel/prive/squelettes/navigation/tutos.html",
+		"/home/abelass/git/spip/tutoriel/formulaires/importer_tutos.html",
+		"/home/abelass/git/spip/tutoriel/formulaires/importer_tutos.php",
+		"/home/abelass/git/spip/tutoriel/lang/tuto_fr.php",
+		"/home/abelass/git/spip/tutoriel/paquet.xml",
+		"/home/abelass/git/spip/larut/aside/rubrique-ateliers.html",
+		"/home/abelass/git/spip/larut/article.html",
+		"/home/abelass/git/spip/larut/agenda.json.html",
+		"/home/abelass/git/spip/larut/formulaires/newsletter_subscribe.php",
+		"/home/abelass/git/spip/larut/backend_sites.html",
+		"/home/abelass/git/spip/squelette_transformatheque/content/article-cheques.xml",
+		"/home/abelass/git/spip/squelette_transformatheque/content/article-ateliers.xml",
+		"/home/abelass/git/spip/squelette_transformatheque/content/article-cheques.html",
+		"/home/abelass/git/spip/squelette_transformatheque/content/article-projets.xml",
+		"/home/abelass/git/spip/squelette_transformatheque/content/rubrique-home.xml",
+		"/var/www/html/sublime/transformatheque.sublime-project"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 169.0
+	},
+	"output.git-commit":
+	{
+		"height": 120.0
+	},
+	"output.git-merge":
+	{
+		"height": 126.0
+	},
+	"output.git-pull":
+	{
+		"height": 120.0
+	},
+	"output.git-push":
+	{
+		"height": 120.0
+	},
+	"pinned_build_system": "",
+	"project": "sillaco_prod_rainr.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "loca",
+		"selected_items":
+		[
+			[
+				"loca",
+				"/var/www/html/devel/sublime/location_objets.sublime-project"
+			],
+			[
+				"",
+				"/var/www/html/sublime/transformatheque.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 288.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
