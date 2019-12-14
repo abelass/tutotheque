@@ -175,7 +175,7 @@
 		}
 		#champ_recherche {
 			@include main_box(15px, #f1f2f7, 0.2em 1em, 80%);
-			border: 1px;
+			border: none;
 		}
 	}
 	.body {
