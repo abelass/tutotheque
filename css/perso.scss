@@ -114,6 +114,11 @@
 		border: none;
 		margin: 0 12px;
 	}
+	.lien_pagination:hover,
+	.lien_pagination:active,
+	.lien_pagination:focus {
+		color: $pagination-active-color;
+	}
 	.on {
 		font-weight: normal;
 		@include main_box(25px, inherit, 0.65em 1em);
