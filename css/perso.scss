@@ -174,7 +174,8 @@
 			padding-left: 0.75em;
 		}
 		#champ_recherche {
-			@include main_box(15px, #f1f2f7, 0.2em 0, 80%);
+			@include main_box(15px, #f1f2f7, 0.2em 1em, 80%);
+			border: 1px;
 		}
 	}
 	.body {
