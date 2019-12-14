@@ -11,6 +11,7 @@ $grid-gap:          0;
 //* Navbar
 $navbar-default-bg: transparent;
 $navbar-default-link-color: #000;
+$navbar-default-link-hover-color: lighten($navbar-default-link-color, 40%);
 
 /* Fonts */
 $font-family-serif:Lato-Regular;
@@ -18,7 +19,7 @@ $font-family-base: $font-family-serif;
 $headings-font-family: $font-family-serif;
 
 /* Colors */
-$brand-primary: #3046a2;
+$brand-primary: #EF783E;
 
 //** Global textual link color.
 $link-color:            $brand-primary;

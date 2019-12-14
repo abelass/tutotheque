@@ -8,7 +8,7 @@
 
 /* Genéral */
 #barre_social, #footer {
-	background-color: #ef783e;
+	background-color: $brand-primary;
 }
 
 #barre_social {
@@ -32,11 +32,23 @@
 				ul {
 					right: 0;
 				}
+				.on {
+					font-weight: normal;
+					a {
+						color: $navbar-default-link-hover-color;
+					}
+				}
 				li {
 					float:none;
 					a {
+						border: none;
 						padding: 0 15px;
 						line-height: normal;
+					}
+					a:hover,
+					a:focus,
+					a:active {
+						color: $navbar-default-link-hover-color;
 					}
 				}
 			}
@@ -49,10 +61,6 @@
 		display: none;
 		}
 	}
-}
-
-#nav .navbar li a {
-	border: none;
 }
 
 .formulaire_menu_lang select {
@@ -73,6 +81,13 @@
 	.page {
 		background-color: transparent;
 		margin-bottom: 0;
+	}
+	a,
+	a:visited {
+		color: #fff;
+	}
+	a:hover {
+		color: $navbar-default-link-hover-color;
 	}
 }
 
@@ -153,8 +168,14 @@
 				@include main_box(5px, #fff, 1em, 32%);
 				text-align: center;
 				margin-bottom: 1em;
-				.h2 {
+				a.h2 {
 					font-size: 1.1em;
+				}
+				a.h2:visited {
+					color: inherit;
+				}
+				a.h2:hover {
+					color: $link-hover-color;
 				}
 				> a {
 					display: block;
