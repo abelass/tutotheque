@@ -100,6 +100,29 @@
 	}
 }
 
+/* Paghination */
+.pagination {
+	@include main_box(5px, #fff, 1.5em, 100%);
+	display: flex;
+	justify-content: space-between;
+	.disabled {
+		display: block;
+		visibility: hidden;
+	}
+	.lien_pagination,
+	.lien_pagination:hover {
+		border: none;
+		margin: 0 12px;
+	}
+	.on {
+		font-weight: normal;
+		@include main_box(25px, inherit, 0.65em 1em);
+		border:none;
+		box-shadow: -4px 8px 18px -9px;
+	}
+
+}
+
 /* Banner */
 #logo_site_spip {font-size: 0}
 

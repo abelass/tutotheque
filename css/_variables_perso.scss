@@ -11,7 +11,7 @@ $grid-gap:          0;
 //* Navbar
 $navbar-default-bg: transparent;
 $navbar-default-link-color: #000;
-$navbar-default-link-hover-color: lighten($navbar-default-link-color, 40%);
+$navbar-default-link-hover-color: lighten($navbar-default-link-color, 60%);
 
 /* Fonts */
 $font-family-serif:Lato-Regular;
@@ -28,3 +28,9 @@ $link-hover-color:      darken($link-color, 15%);
 
 /* Grid */
 $grid-template-columns: 0 minmax(50%, 100%) auto;
+
+$pagination-color: #000;
+$pagination-active-bg : inherent;
+$pagination-active-color: $navbar-default-link-hover-color;
+$pagination-active-border: $pagination-active-color;
+

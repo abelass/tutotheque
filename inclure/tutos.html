@@ -23,7 +23,7 @@
 <B_tutos_langues>
 #ANCRE_PAGINATION
 <div class="tutos flex">
-	<BOUCLE_tutos_langues(TUTOS){id_tuto IN #GET{id_tuto}}{par titre}{pagination 20}>
+	<BOUCLE_tutos_langues(TUTOS){id_tuto IN #GET{id_tuto}}{par titre}{pagination 18}>
 	<div class="item">
 		<a
 			href="#URL_TUTO"
@@ -43,7 +43,7 @@
 	</div>
 	</BOUCLE_tutos_langues>
 
-	[(#PAGINATION{precedent_suivant,ajax})]
+	[<div class="pagination">(#PAGINATION{page_precedent_suivant,ajax,label_precedent=<,label_suivant=>})</div>]
 </div>
 </B_tutos_langues>
 <p>Pas de tutos</p>
