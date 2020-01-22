@@ -17,18 +17,27 @@
 	</div>
 	<aside class="span3">
 		[(#LOGO_TUTO|image_reduire{220})]
-		<B_tags>
+		<B_groupes>
 		<div class="postmeta">
 				<ul class="list mots">
-					<BOUCLE_tags(MOTS){id_tuto}>
 					<li>
-						<strong>#INFO_TITRE{groupe_mots,#ID_GROUPE}:</strong>
+					<BOUCLE_groupes(GROUPES_MOTS){par num titre, titre}>
+					<B_tags>
+						<ul>
+							<li>
+					<strong>#INFO_TITRE{groupe_mots,#ID_GROUPE}:</strong>
+					<BOUCLE_tags(MOTS){id_tuto} {id_groupe} {', '}>
 						<a class="label" href="#URL_MOT" title="#INFO_TITRE{groupe_mots,#ID_GROUPE}">
-							#TITRE</a></li>
+							#TITRE</a>
 					</BOUCLE_tags>
+							</li>
+						</ul>
+					<B_tags>
+					</BOUCLE_groupes>
+					</li>
 				</ul>
 		</div>
-		</B_tags>
+		</B_groupes>
 	</aside>
 
 	<footer>
