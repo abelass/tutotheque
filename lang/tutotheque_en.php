@@ -14,6 +14,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// F
 	'fieldset_filtres' => 'Filters',
 
+	// I
+	'info_telecharger_tuto' => 'Download the tutorial:',
+
 	// T
 	'tags' => 'Tags:',
 	'tutotheque_titre' => 'Tutothèque',
