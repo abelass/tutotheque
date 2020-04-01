@@ -1,25 +1,24 @@
 #SET{id_tuto,#ARRAY}
 #SET{id_trad,#ARRAY}
+#ENV{langue}
 <BOUCLE_tutos(TUTOS){recherche?}{mots?}>
 	<BOUCLE_tutos_trad(TUTOS){traduction}{id_trad !IN #GET{id_trad}}{lang IN #ENV{langue,#ENV{langues_def}}}>
-	[(#REM) DÃ©tecter quel tuto à afficher]
+	[(#REM) Détecter quel tuto à afficher]
 	[(#ID_TRAD|>{0}|et{#ENV{langue}|non}|?{
-		[(#ID_TRAD|in_array{#GET{id_trad}}|non)
-			#SET{id_trad,#GET{id_trad}|push{#ID_TRAD}}
-		]
 		[(#LANG|=={#ENV{lang}}|?{
 			#SET{id_tuto,#GET{id_tuto}|push{#ID_TUTO}},
 			[(#ID_TRAD|in_array{#GET{id_trad}}|non)
 				#SET{id_tuto,#GET{id_tuto}|push{#ID_TRAD}}
 			]
 		})]
+		[(#ID_TRAD|in_array{#GET{id_trad}}|non)
+			#SET{id_trad,#GET{id_trad}|push{#ID_TRAD}}
+		]
 		,
 		#SET{id_tuto,#GET{id_tuto}|push{#ID_TUTO}}
 	})]
 	</BOUCLE_tutos_trad>
 </BOUCLE_tutos>
-
-
 <B_tutos_langues>
 #ANCRE_PAGINATION
 <div class="tutos flex">
@@ -37,9 +36,14 @@
 			hreflang="#LANG">
 				#TITRE
 		</a>
+		<B_trads>
+			<small><span><:info_traductions:>: </span>
+		<BOUCLE_trads(TUTOS){traduction}{lang != #LANG} {', '}><a href="#URL" title="#TITRE">#LANG</a></BOUCLE_trads>
+		</small>
+		</B_trads>	
 		<BOUCLE_organisations (MOTS) {id_tuto}{id_groupe IN 2,6}>
 			<div>#TITRE</div>
-			</BOUCLE_organisations>
+		</BOUCLE_organisations>
 	</div>
 	</BOUCLE_tutos_langues>
 
