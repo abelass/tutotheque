@@ -23,7 +23,7 @@
 <B_tutos_langues>
 #ANCRE_PAGINATION
 <div class="tutos flex">
-	<BOUCLE_tutos_langues(TUTOS){id_tuto IN #GET{id_tuto}}{par titre}{pagination 18}>
+	<BOUCLE_tutos_langues(TUTOS){id_tuto IN #GET{id_tuto}}{!par date}{pagination 18}>
 	<div class="item">
 		<a
 			href="#URL_TUTO"
