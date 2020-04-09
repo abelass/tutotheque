@@ -100,7 +100,7 @@
 	}
 }
 
-/* Paghination */
+/* Pagination */
 .pagination {
 	@include main_box(5px, #fff, 1.5em, 100%);
 	display: flex;
@@ -292,26 +292,26 @@
 	}
 }
 
-/* Tuto */
-.page_tuto {
-	.content-principal {
-		justify-content: space-between;
-		.principal {
-			@include main_box(5px, #fff, 1em, 55%);
+/* Main content */
+
+.content-principal {
+	justify-content: space-between;
+	.principal {
+		@include main_box(5px, #fff, 1em, 55%);
+	}
+	aside[class^='span']{
+		@include main_box(5px, #fff, 1.5em, 30%);
+		img {
+			float: none;
+			margin: 0 auto 1.5em auto;
+			display: block;
 		}
-		aside {
-			@include main_box(5px, #fff, 1.5em, 30%);
-			img {
-				float: none;
-				margin: 0 auto 1.5em auto;
-				display: block;
-			}
-			ul {
-				padding: 0;
-			}
+		ul {
+			padding: 0;
 		}
 	}
 }
+
 
 @media all and (max-width: 800px) {
 
