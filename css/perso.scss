@@ -311,6 +311,11 @@
 		}
 	}
 }
+html:not(.rubrique_home) {
+	#content > section {
+		@include main_box(5px, #fff, 1em, 100%);
+	}
+}
 
 
 @media all and (max-width: 800px) {
