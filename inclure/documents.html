@@ -1,6 +1,6 @@
 [(#REM) Portfolio : album d'images ]
 <B_documents_portfolio>
-<div class="liste documents documents_portfolio">
+<section class="liste documents documents_portfolio">
 	<h2 class="h2">[(#ENV{titre_portfolio,<:medias:info_portfolio:>})]</h2>
 	<BOUCLE_documents_portfolio(DOCUMENTS)
 		{id_article?}
@@ -20,7 +20,7 @@
 			|inserer_attribut{alt,[(#TITRE|attribut_html|couper{80})]})]
 		</a>
 	]</BOUCLE_documents_portfolio>
-</section>
+	</section>
 </B_documents_portfolio>
 
 
