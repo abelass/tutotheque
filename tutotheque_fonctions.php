@@ -3,7 +3,7 @@
  * Fonctions utiles au plugin Tutothèque
  *
  * @plugin     Tutothèque
- * @copyright  2019
+ * @copyright  2019 - 2021
  * @author     Rainer Müller
  * @licence    GNU/GPL v3
  * @package    SPIP\Tutotheque\Fonctions
@@ -19,5 +19,5 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * systématiquement chargés lors du calcul des squelettes.
  *
  * Il peut par exemple définir des filtres, critères, balises, …
- * 
+ *
  */
