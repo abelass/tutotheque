@@ -3,7 +3,7 @@
  * Options Tutothèque
  *
  * @plugin     Tutothèque
- * @copyright  2019 - 2021
+ * @copyright  2019 - 2022
  * @author     Rainer Müller
  * @licence    GNU/GPL v3
  * @package    SPIP\Tutotheque\Options
