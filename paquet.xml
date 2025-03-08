@@ -1,9 +1,9 @@
 <paquet
 	prefix="tutotheque"
 	categorie="squelette"
-	version="1.2.0"
+	version="1.2.1"
 	etat="test"
-	compatibilite="[3.2.3;4.1.*]"
+	compatibilite="[3.2.3;4.4.*]"
 	logo="prive/themes/spip/images/tutotheque-64.png"
 	documentation="https://github.com/abelass/tutotheque"
 >
